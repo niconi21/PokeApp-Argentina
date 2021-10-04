@@ -1,0 +1,33 @@
+.nav {
+  padding-top: $navbar-padding-top;
+  width: $navbar-width;
+  float: $navbar-float;
+  margin-right: $navbar-margin-right;
+  .listNav {
+    list-style-type: $navbar-list-style-type;
+    float: $navbar-float;
+
+    li {
+      float: $navbar-li-float;
+      margin-right: $navbar-margin-right;
+      a {
+        font-family: $navbar-font-family;
+        text-decoration: $navbar-text-decoration;
+        color: $gray-700;
+        
+      }
+      i {
+        font-size: $navbar-font-size;
+      }
+      .active {
+        color: $gray-900;
+        text-decoration: solid;
+        text-decoration: underline;
+        
+      }
+      .btn{
+        padding: 4px;
+      }
+    }
+  }
+}

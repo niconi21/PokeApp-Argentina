@@ -1,0 +1,22 @@
+$cols: 12;
+
+$grid-size: map-merge(
+  (
+    "xl": 750px,
+    "lg": 750px,
+    "md": 750px,
+    "sm": 750px,
+    "xs": 750px,
+  ),
+  $theme-colors
+);
+
+// @each $name, $value in $grid-size {
+//     $size = $value / $cols
+//   @for $col from 1 to $cols {
+//     .col-#{$name}-#{$col} {
+//         display: grid;
+//         grid-template-columns: ;
+//     }
+//   }
+// }
