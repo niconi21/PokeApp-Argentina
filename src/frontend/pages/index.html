@@ -17,85 +17,305 @@
     <title>PokeApp</title>
 </head>
 
-<body class="bg-primary">
-
-
-    <div class="container bg-warning">
-        <div class="row">
-            <nav class="nav">
-                <img src="../assets/img/logo.png" alt="logo pokemon" width="100px" height="40px">
-                <ul class="listNav">
-                    <li><a class="active" href="">Inicio</a></li>
-                    <li class=""><a href="">Productos</a></li>
-                    <li class=""><a href="">Ubicación</a></li>
-                    <li class=""><a href="">Acerca de</a></li>
-                    <li>
-                        <form action="">
-                            <input class="form-control" type="search" placeholder="Buscar" name="" id="">
-                            <input class="btn btn-success text-white" type="submit" value="Buscar">
-                        </form>
-                    </li>
-                    <li>
-                        <i class="fas fa-shopping-cart"></i>
-                    </li>
-                </ul>
-
-            </nav>
-        </div>
-    </div>
-    <div class="container">
-        <div class="row">
-            <div class="card">
-                <div class="card-body">
-
-                    <div class="row text-center">
-                        <h1>PokeApp</h1>
-                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Deleniti ducimus officia reiciendis
-                            maxime molestiae aperiam quam dicta corrupti quas praesentium. Laudantium quis, fugiat eius
-                            veniam sint commodi nesciunt. Odio, aliquam. Lorem ipsum dolor sit amet consectetur
-                            adipisicing elit. Debitis, doloremque? Quaerat reprehenderit ipsam repudiandae numquam
-                            officia delectus! Laborum, omnis est. Voluptatibus velit provident magni nesciunt iusto
-                            earum deleniti sequi! Quaerat!</p>
-                        <a class="btn btn-info  text-white">Aceca de nosotros</a>
-                    </div>
-                </div>
-                <div class="card-footer text-center">
-                    30 de septiembre del 2021
-                </div>
+<body>
+    <nav class="navbar">
+        <img class="img-nav" src="../assets/img/logo.png" alt="">
+        <ul class="list-nav oculto nav-item">
+            <li class="item-list"><a href="">Inicio</a></li>
+            <li class="item-list"><a href="">Productos</a></li>
+            <li class="item-list"><a href="">Ubicación</a></li>
+            <li class="item-list"><a href="">Acerca de</a></li>
+            <li class="item-list oculto-nav"><a href="">Carrito</a></li>
+        </ul>
+        <form class="form-nav oculto nav-item">
+            <input type="search" placeholder="Busqueda">
+            <button>Buscar</button>
+        </form>
+        <a class="a-nav">
+            <i class="fas fa-2x fa-shopping-cart text-light"></i>
+        </a>
+        <button id="btn-menu" class="btn-info btn-nav oculto-nav"><i class="fas fa-bars"></i></button>
+    </nav>
+    <div class="content">
+        <div class="card border-info text-center text-light elevation-1">
+            <div class="card-header border-bottom-info ">
+                <h4>PokeApp</h4>
+            </div>
+            <div class="card-body border-bottom-info text-center">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis blanditiis minus ipsam necessitatibus quo ex mollitia! Esse expedita inventore sunt dolores, error quae aliquam dolor, delectus, minima repellendus assumenda perspiciatis.
+                Magnam, architecto tenetur! Quasi culpa totam fugit tempora, laboriosam fugiat voluptas labore vitae nam consequuntur, illum temporibus cumque earum asperiores itaque eaque commodi? Dolorum omnis nulla veniam. Voluptas, nemo error!
+                Architecto, tempora temporibus aut blanditiis ad distinctio reiciendis ratione excepturi debitis similique dolorem. Minima, fuga reprehenderit nam maxime similique iusto dolorem ducimus iste quasi aperiam, nesciunt voluptate! Tenetur, explicabo assumenda.
+                Assumenda sequi perferendis a esse, voluptatem rem eius possimus natus ut ab cum distinctio eos error, eum iure? Debitis fugiat numquam harum quas unde vitae quisquam illo ducimus obcaecati consectetur!
+                Libero ea modi quasi, vel laborum possimus autem molestias ex ipsam est natus optio tempore odio ad iusto itaque, repellendus sit impedit, distinctio voluptas eos. Amet, assumenda voluptatum. Perspiciatis, doloremque.
+            </div>
+            <div class="card-footer">
+                4 de octubre del 2021
             </div>
         </div>
-    </div>
-    <div class="container">
-        <div class="row">
-            <div class="card">
-                <div class="card-body">
-
-                    <div class="row text-left">
-                        <h2>Pokemones más famosos</h2>
-                        <div class="row">
-                            <div class="card card-info">
-                                <div class="card-header">
-                                    <img src="../assets/img/logo.png"  height="100px" alt="">
-                                </div>
-                                <div class="card-body">
-                                    <h4>Nombre</h4>
-                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem iusto quas molestias. Quis provident recusandae culpa ipsum ducimus nobis iure molestiae, laudantium earum consequatur, alias fuga, inventore commodi ex quasi?</p>
-                                </div>
-                                <div class="card-footer">
-                                    <button class="btn btn-info text-white"><i class="fas fa-share-alt"></i> Compartir</button>
-                                </div>
+        <div class="card border-dark text-light elevation-1">
+            <div class="card-header">
+                <h2>Pokemones más famosos</h2>
+            </div>
+            <div class="card-body">
+                    <div class="content-cards">
+                        <div class="card-producto border-secondary elevation-2 border-left-danger border-right-danger">
+                            <div class="card-producto-header">
+                                <img src="../assets/img/logo.png" alt="">
+                            </div>
+                            <div class="card-producto-body">
+                                <small class="text-warning ">12 de agosto del 2021</small>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Error provident odit porro
+                                    dolorem ipsam aliquam iste ut deserunt neque totam mollitia impedit quia inventore
+                                    dolores, rerum magnam aspernatur pariatur fuga.</p>
+                            </div>
+                            <div class="card-producto-footer">
+                                <button class="btn btn-info text-light"><i class="text-dark fas fa-share"></i>
+                                    Compartir</button>
                             </div>
                         </div>
+                        <div class="card-producto border-secondary elevation-2 border-left-danger border-right-danger">
+                            <div class="card-producto-header">
+                                <img src="../assets/img/logo.png" alt="">
+                            </div>
+                            <div class="card-producto-body">
+                                <small class="text-warning ">12 de agosto del 2021</small>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Error provident odit porro
+                                    dolorem ipsam aliquam iste ut deserunt neque totam mollitia impedit quia inventore
+                                    dolores, rerum magnam aspernatur pariatur fuga.</p>
+                            </div>
+                            <div class="card-producto-footer">
+                                <button class="btn btn-info text-light"><i class="text-dark fas fa-share"></i>
+                                    Compartir</button>
+                            </div>
+                        </div>
+                        <div class="card-producto border-secondary elevation-2 border-left-danger border-right-danger">
+                            <div class="card-producto-header">
+                                <img src="../assets/img/logo.png" alt="">
+                            </div>
+                            <div class="card-producto-body">
+                                <small class="text-warning ">12 de agosto del 2021</small>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Error provident odit porro
+                                    dolorem ipsam aliquam iste ut deserunt neque totam mollitia impedit quia inventore
+                                    dolores, rerum magnam aspernatur pariatur fuga.</p>
+                            </div>
+                            <div class="card-producto-footer">
+                                <button class="btn btn-info text-light"><i class="text-dark fas fa-share"></i>
+                                    Compartir</button>
+                            </div>
+                        </div>
+                        <div class="card-producto border-secondary elevation-2 border-left-danger border-right-danger">
+                            <div class="card-producto-header">
+                                <img src="../assets/img/logo.png" alt="">
+                            </div>
+                            <div class="card-producto-body">
+                                <small class="text-warning ">12 de agosto del 2021</small>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Error provident odit porro
+                                    dolorem ipsam aliquam iste ut deserunt neque totam mollitia impedit quia inventore
+                                    dolores, rerum magnam aspernatur pariatur fuga.</p>
+                            </div>
+                            <div class="card-producto-footer">
+                                <button class="btn btn-info text-light"><i class="text-dark fas fa-share"></i>
+                                    Compartir</button>
+                            </div>
+                        </div>
+                        <div class="card-producto border-secondary elevation-2 border-left-danger border-right-danger">
+                            <div class="card-producto-header">
+                                <img src="../assets/img/logo.png" alt="">
+                            </div>
+                            <div class="card-producto-body">
+                                <small class="text-warning ">12 de agosto del 2021</small>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Error provident odit porro
+                                    dolorem ipsam aliquam iste ut deserunt neque totam mollitia impedit quia inventore
+                                    dolores, rerum magnam aspernatur pariatur fuga.</p>
+                            </div>
+                            <div class="card-producto-footer">
+                                <button class="btn btn-info text-light"><i class="text-dark fas fa-share"></i>
+                                    Compartir</button>
+                            </div>
+                        </div>
+                        <div class="card-producto border-secondary elevation-2 border-left-danger border-right-danger">
+                            <div class="card-producto-header">
+                                <img src="../assets/img/logo.png" alt="">
+                            </div>
+                            <div class="card-producto-body">
+                                <small class="text-warning ">12 de agosto del 2021</small>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Error provident odit porro
+                                    dolorem ipsam aliquam iste ut deserunt neque totam mollitia impedit quia inventore
+                                    dolores, rerum magnam aspernatur pariatur fuga.</p>
+                            </div>
+                            <div class="card-producto-footer">
+                                <button class="btn btn-info text-light"><i class="text-dark fas fa-share"></i>
+                                    Compartir</button>
+                            </div>
+                        </div>
+                        <div class="card-producto border-secondary elevation-2 border-left-danger border-right-danger">
+                            <div class="card-producto-header">
+                                <img src="../assets/img/logo.png" alt="">
+                            </div>
+                            <div class="card-producto-body">
+                                <small class="text-warning ">12 de agosto del 2021</small>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Error provident odit porro
+                                    dolorem ipsam aliquam iste ut deserunt neque totam mollitia impedit quia inventore
+                                    dolores, rerum magnam aspernatur pariatur fuga.</p>
+                            </div>
+                            <div class="card-producto-footer">
+                                <button class="btn btn-info text-light"><i class="text-dark fas fa-share"></i>
+                                    Compartir</button>
+                            </div>
+                        </div>
+                        <div class="card-producto border-secondary elevation-2 border-left-danger border-right-danger">
+                            <div class="card-producto-header">
+                                <img src="../assets/img/logo.png" alt="">
+                            </div>
+                            <div class="card-producto-body">
+                                <small class="text-warning ">12 de agosto del 2021</small>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Error provident odit porro
+                                    dolorem ipsam aliquam iste ut deserunt neque totam mollitia impedit quia inventore
+                                    dolores, rerum magnam aspernatur pariatur fuga.</p>
+                            </div>
+                            <div class="card-producto-footer">
+                                <button class="btn btn-info text-light"><i class="text-dark fas fa-share"></i>
+                                    Compartir</button>
+                            </div>
+                        </div>
+                        <div class="card-producto border-secondary elevation-2 border-left-danger border-right-danger">
+                            <div class="card-producto-header">
+                                <img src="../assets/img/logo.png" alt="">
+                            </div>
+                            <div class="card-producto-body">
+                                <small class="text-warning ">12 de agosto del 2021</small>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Error provident odit porro
+                                    dolorem ipsam aliquam iste ut deserunt neque totam mollitia impedit quia inventore
+                                    dolores, rerum magnam aspernatur pariatur fuga.</p>
+                            </div>
+                            <div class="card-producto-footer">
+                                <button class="btn btn-info text-light"><i class="text-dark fas fa-share"></i>
+                                    Compartir</button>
+                            </div>
+                        </div>
+                        <div class="card-producto border-secondary elevation-2 border-left-danger border-right-danger">
+                            <div class="card-producto-header">
+                                <img src="../assets/img/logo.png" alt="">
+                            </div>
+                            <div class="card-producto-body">
+                                <small class="text-warning ">12 de agosto del 2021</small>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Error provident odit porro
+                                    dolorem ipsam aliquam iste ut deserunt neque totam mollitia impedit quia inventore
+                                    dolores, rerum magnam aspernatur pariatur fuga.</p>
+                            </div>
+                            <div class="card-producto-footer">
+                                <button class="btn btn-info text-light"><i class="text-dark fas fa-share"></i>
+                                    Compartir</button>
+                            </div>
+                        </div>
+                        <div class="card-producto border-secondary elevation-2 border-left-danger border-right-danger">
+                            <div class="card-producto-header">
+                                <img src="../assets/img/logo.png" alt="">
+                            </div>
+                            <div class="card-producto-body">
+                                <small class="text-warning ">12 de agosto del 2021</small>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Error provident odit porro
+                                    dolorem ipsam aliquam iste ut deserunt neque totam mollitia impedit quia inventore
+                                    dolores, rerum magnam aspernatur pariatur fuga.</p>
+                            </div>
+                            <div class="card-producto-footer">
+                                <button class="btn btn-info text-light"><i class="text-dark fas fa-share"></i>
+                                    Compartir</button>
+                            </div>
+                        </div>
+                        <div class="card-producto border-secondary elevation-2 border-left-danger border-right-danger">
+                            <div class="card-producto-header">
+                                <img src="../assets/img/logo.png" alt="">
+                            </div>
+                            <div class="card-producto-body">
+                                <small class="text-warning ">12 de agosto del 2021</small>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Error provident odit porro
+                                    dolorem ipsam aliquam iste ut deserunt neque totam mollitia impedit quia inventore
+                                    dolores, rerum magnam aspernatur pariatur fuga.</p>
+                            </div>
+                            <div class="card-producto-footer">
+                                <button class="btn btn-info text-light"><i class="text-dark fas fa-share"></i>
+                                    Compartir</button>
+                            </div>
+                        </div>
+                        <div class="card-producto border-secondary elevation-2 border-left-danger border-right-danger">
+                            <div class="card-producto-header">
+                                <img src="../assets/img/logo.png" alt="">
+                            </div>
+                            <div class="card-producto-body">
+                                <small class="text-warning ">12 de agosto del 2021</small>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Error provident odit porro
+                                    dolorem ipsam aliquam iste ut deserunt neque totam mollitia impedit quia inventore
+                                    dolores, rerum magnam aspernatur pariatur fuga.</p>
+                            </div>
+                            <div class="card-producto-footer">
+                                <button class="btn btn-info text-light"><i class="text-dark fas fa-share"></i>
+                                    Compartir</button>
+                            </div>
+                        </div>
+                        <div class="card-producto border-secondary elevation-2 border-left-danger border-right-danger">
+                            <div class="card-producto-header">
+                                <img src="../assets/img/logo.png" alt="">
+                            </div>
+                            <div class="card-producto-body">
+                                <small class="text-warning ">12 de agosto del 2021</small>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Error provident odit porro
+                                    dolorem ipsam aliquam iste ut deserunt neque totam mollitia impedit quia inventore
+                                    dolores, rerum magnam aspernatur pariatur fuga.</p>
+                            </div>
+                            <div class="card-producto-footer">
+                                <button class="btn btn-info text-light"><i class="text-dark fas fa-share"></i>
+                                    Compartir</button>
+                            </div>
+                        </div>
+                        <div class="card-producto border-secondary elevation-2 border-left-danger border-right-danger">
+                            <div class="card-producto-header">
+                                <img src="../assets/img/logo.png" alt="">
+                            </div>
+                            <div class="card-producto-body">
+                                <small class="text-warning ">12 de agosto del 2021</small>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Error provident odit porro
+                                    dolorem ipsam aliquam iste ut deserunt neque totam mollitia impedit quia inventore
+                                    dolores, rerum magnam aspernatur pariatur fuga.</p>
+                            </div>
+                            <div class="card-producto-footer">
+                                <button class="btn btn-info text-light"><i class="text-dark fas fa-share"></i>
+                                    Compartir</button>
+                            </div>
+                        </div>
+                        <div class="card-producto border-secondary elevation-2 border-left-danger border-right-danger">
+                            <div class="card-producto-header">
+                                <img src="../assets/img/logo.png" alt="">
+                            </div>
+                            <div class="card-producto-body">
+                                <small class="text-warning ">12 de agosto del 2021</small>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Error provident odit porro
+                                    dolorem ipsam aliquam iste ut deserunt neque totam mollitia impedit quia inventore
+                                    dolores, rerum magnam aspernatur pariatur fuga.</p>
+                            </div>
+                            <div class="card-producto-footer">
+                                <button class="btn btn-info text-light"><i class="text-dark fas fa-share"></i>
+                                    Compartir</button>
+                            </div>
+                        </div>
+                        
                     </div>
-                </div>
-
+            </div>
+            <div class="card-footer">
+                <button type="button" class="btn btn-nav btn-block btn-info text-light"><i class="fas fa-eye"></i> Ver más</button>
             </div>
         </div>
-    </div>
 
+    </div>
+    <div class="content">
+        <div class="footer text-center">
+            <p>PokeApp - @Copyright 2021</p>
+        </div>
+    </div>
     <script src="../assets/vendor/jquery/jquery.slim.min.js"></script>
     <script src="../assets/vendor/moment/moment.js"></script>
     <script src="../assets/vendor/sweetAlert2/sweetalert2.all.js"></script>
+    <script src="../assets/js/index.js"></script>
     <script src="../assets/js/busqueda.js"></script>
     <script src="../assets/js/carrito.js"></script>
     <script src="../assets/js/productos.js"></script>

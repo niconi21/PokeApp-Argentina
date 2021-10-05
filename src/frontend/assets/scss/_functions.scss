@@ -1,9 +1,0 @@
-@each $color, $value in $theme-colors {
-  .bg-#{$color} {
-    background-color: $value;
-  }
-  .card-#{$color} {
-    background-color: $value;
-  }
-}
-
