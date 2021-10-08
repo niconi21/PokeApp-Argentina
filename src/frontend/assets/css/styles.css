@@ -306,6 +306,10 @@
   text-align: justify;
 }
 
+.ml-2 {
+  margin-left: 20px;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -413,6 +417,12 @@ body {
   flex-flow: column wrap;
 }
 
+.content-2 {
+  display: flex;
+  flex-flow: row wrap;
+  width: 100%;
+}
+
 .card {
   display: inline-block;
   padding: 1rem 1rem;
@@ -507,6 +517,41 @@ body {
 }
 .footer p {
   margin-top: 20px;
+}
+
+.informacionDev {
+  width: 38%;
+  margin-left: 5%;
+}
+@media screen and (max-width: 839px) {
+  .informacionDev {
+    width: 100%;
+  }
+}
+.informacionDev .title-infoDev {
+  margin-bottom: 20px;
+}
+
+.mapa {
+  width: 100%;
+}
+
+.form-row {
+  margin: 30px 30px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  column-gap: 20px;
+}
+.form-row label {
+  display: flex;
+  flex-direction: row;
+  width: 20%;
+}
+.form-row label select {
+  margin-left: 5px;
+  border-radius: 15px;
+  width: 100%;
 }
 
 /*# sourceMappingURL=styles.css.map */

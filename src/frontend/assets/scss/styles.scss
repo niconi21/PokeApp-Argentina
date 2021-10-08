@@ -107,6 +107,12 @@ body {
   display: flex;
   flex-flow: column wrap;
 }
+.content-2 {
+  display: flex;
+  flex-flow: row wrap;
+  width: 100%;
+  
+}
 
 .card {
   display: inline-block;
@@ -196,4 +202,40 @@ body {
         margin-top: 20px;
     }
     height: 50px;
+}
+
+.informacionDev{
+  width: 38%;
+  margin-left: 5%;
+  @media screen and (max-width:839px) {
+    width: 100%;
+  }
+  .title-infoDev{
+    margin-bottom: 20px;
+  }
+}
+
+.mapa{
+  width: 100%;
+}
+
+.form-row{
+  margin: 30px 30px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  column-gap: 20px;
+
+  label{
+    display: flex;
+    flex-direction: row;
+    width: 20%;
+    select{
+      margin-left: 5px;
+      border-radius: 15px;
+      
+      width: 100%;
+    }
+    
+  }
 }
