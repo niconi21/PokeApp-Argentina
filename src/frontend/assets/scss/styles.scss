@@ -24,11 +24,10 @@ body {
     justify-content: center;
     align-content: center;
     row-gap: 10px;
-    *:hover {
-      border: 2px solid $black !important;
-    }
+    
     .list-nav {
       order: 1;
+      
     }
     .form-nav {
       order: 1;
@@ -91,6 +90,10 @@ body {
   @media screen and (max-width: 773px) {
     // background-color: $black;
     flex-flow: column wrap;
+    .item-list{
+    margin-top: 5px;
+
+    }
   }
 }
 
@@ -236,6 +239,19 @@ body {
       
       width: 100%;
     }
-    
+  }
+  @media screen and (max-width: 786px) {
+    flex-direction: row;
+    label{
+      width: 40%;
+      margin:10px 10px;
+    }
+  }
+  @media screen and (max-width: 480px) {
+    flex-direction: column;
+    label{
+      width: 100%;
+      margin:10px 10px;
+    }
   }
 }

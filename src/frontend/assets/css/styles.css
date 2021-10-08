@@ -335,9 +335,6 @@ body {
     align-content: center;
     row-gap: 10px;
   }
-  .navbar *:hover {
-    border: 2px solid #000 !important;
-  }
   .navbar .list-nav {
     order: 1;
   }
@@ -400,6 +397,9 @@ body {
 @media screen and (max-width: 773px) {
   .list-nav {
     flex-flow: column wrap;
+  }
+  .list-nav .item-list {
+    margin-top: 5px;
   }
 }
 
@@ -552,6 +552,24 @@ body {
   margin-left: 5px;
   border-radius: 15px;
   width: 100%;
+}
+@media screen and (max-width: 786px) {
+  .form-row {
+    flex-direction: row;
+  }
+  .form-row label {
+    width: 40%;
+    margin: 10px 10px;
+  }
+}
+@media screen and (max-width: 480px) {
+  .form-row {
+    flex-direction: column;
+  }
+  .form-row label {
+    width: 100%;
+    margin: 10px 10px;
+  }
 }
 
 /*# sourceMappingURL=styles.css.map */
