@@ -1,3 +1,4 @@
+
 $('#btn-menu').click(() => {
     let items = document.getElementsByClassName('nav-item');
     for (let index = 0; index < items.length; index++) {
@@ -33,13 +34,13 @@ function llenarCards(url){
                 createFieldSearch(`https://pokeapi.co/api/v2/ability/${resultado.id}/`).done((resultado)=>{
                     let pokemonChar = resultado.effect_entries;
                     $("#cardsPokemon").append(`
-                    <div class="card-producto border-secondary elevation-2 border-left-danger border-right-danger" id="card1">
+                    <div class="card-producto border-secondary elevation-2" id="card1">
                         <div class="card-producto-header">
-                            <img src="${pokemonSprits.front_default}" alt="">
+                            <img src="${pokemonSprits.front_default}" width="100px">
                         </div>
                         <div class="card-producto-body">
-                            <small class="text-warning">${nombrePokemon}</small>
-                            <p>${pokemonChar[1].short_effect}</p>
+                            <h2 class="text-warning">${nombrePokemon}</h2>
+                            <p class="text-justify">${pokemonChar[1].short_effect}</p>
                         </div>
                         <div class="card-producto-footer">
                             <button class="btn btn-info text-light" id="prueba"><i class="text-dark fas fa-share"></i>
