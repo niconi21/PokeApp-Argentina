@@ -16,24 +16,41 @@ function createFieldSearch(datos) {
     });
 }
 
-$('#prueba').click(()=>{
-    var idPokemon;
+
+
+function llenarCards(){
     createFieldSearch("https://pokeapi.co/api/v2/pokemon/").done((resultado)=>{
         //Nombre.................................................
-        let pokemon = resultado.results;
-        console.log("Nombre: "+pokemon[0].name)
-        //Sprits.................................................
-        createFieldSearch(`${pokemon[0].url}`).done((resultado)=>{
-            let pokemonSprits = resultado.sprites;
-            console.log("Sprit: "+pokemonSprits.front_default)
-            $("#imagen1").attr("src",`${pokemonSprits.front_default}`)
-            console.log("id: "+resultado.id)
+        let consulta = resultado.results;
+        consulta.forEach(pokemon => {
+            var nombrePokemon = pokemon.name;
+            createFieldSearch(`${pokemon.url}`).done((resultado)=>{
+                let pokemonSprits = resultado.sprites;
+                createFieldSearch(`https://pokeapi.co/api/v2/characteristic/${resultado.id}/`).done((resultado)=>{
+                    let pokemonChar = resultado.descriptions;
+                    $("#cardsPokemon").append(`
+                    <div class="content-cards">
+                    <div class="card-producto border-secondary elevation-2 border-left-danger border-right-danger" id="card1">
+                        <div class="card-producto-header">
+                            <img src="${pokemonSprits.front_default}" alt="">
+                        </div>
+                        <div class="card-producto-body">
+                            <small class="text-warning">${nombrePokemon}</small>
+                            <p>${pokemonChar[1].description}</p>
+                        </div>
+                        <div class="card-producto-footer">
+                            <button class="btn btn-info text-light" id="prueba"><i class="text-dark fas fa-share"></i>
+                                Compartir</button>
+                        </div>
+                    </div>
+                </div>`);
+    
+                });
+            }); 
         });
-        //descriptions.............................................
-        console.log("var: "+idPokemon)
-/*         createFieldSearch(`https://pokeapi.co/api/v2/pokemon/${idPokemon}/`).done((resultado)=>{
-            let pokemonDescriptions = resultado.descriptions;
-            console.log("Descripcion: "+pokemonDescriptions[1].description)
-        }); */
     });
-});
+}
+
+$(document).ready(()=>{
+        llenarCards();
+})
