@@ -29,7 +29,6 @@ function llenarCards(){
                 createFieldSearch(`https://pokeapi.co/api/v2/characteristic/${resultado.id}/`).done((resultado)=>{
                     let pokemonChar = resultado.descriptions;
                     $("#cardsPokemon").append(`
-                    <div class="content-cards">
                     <div class="card-producto border-secondary elevation-2 border-left-danger border-right-danger" id="card1">
                         <div class="card-producto-header">
                             <img src="${pokemonSprits.front_default}" alt="">
@@ -42,8 +41,7 @@ function llenarCards(){
                             <button class="btn btn-info text-light" id="prueba"><i class="text-dark fas fa-share"></i>
                                 Compartir</button>
                         </div>
-                    </div>
-                </div>`);
+                    </div>`);
     
                 });
             }); 
