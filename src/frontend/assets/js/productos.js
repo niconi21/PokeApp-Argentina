@@ -4,6 +4,8 @@ function createFieldSearch(datos) {
         url: `${datos}`,
         type: 'GET',
         dataType: 'json'
+    }).fail( function( jqXHR, textStatus, errorThrown ) {
+        //alert( 'Error!!' );
     }).done(function (response) {
         return response;
     });
@@ -39,6 +41,7 @@ function llenarCardsPokemon(url){
     createFieldSearch(`${url}`).done((resultado)=>{
         let pokemonSprits = resultado.sprites;
         let namePokemon = resultado.name;
+        let costPokemon = resultado.base_experience;
         createFieldSearch(`https://pokeapi.co/api/v2/ability/${resultado.id}/`).done((resultado)=>{
             let pokemonChar = resultado.effect_entries;
             $("#cardsPokemon").append(`
@@ -47,7 +50,7 @@ function llenarCardsPokemon(url){
                     <img src="${pokemonSprits.front_default}" width="100px">
                 </div>
                 <div class="card-producto-body">
-                    <h2 class="text-warning">${namePokemon}</h2>
+                    <h2 class="text-warning">${namePokemon}: $${costPokemon}</h2>
                     <p class="text-justify">${pokemonChar[1].short_effect}</p>
                 </div>
                 <div class="card-producto-footer">
