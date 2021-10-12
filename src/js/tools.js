@@ -33,23 +33,23 @@ function abrirModal(objeto) {
 
             <div>
                 <h4>Información básica</h4>
-                <p><b>Altura:${objeto.altura}</b></p>
-                <p><b>Peso:${objeto.peso}</b></p>
-                <p><b>Áreas de ubicación::${objeto.areaUbicacion}</b></p>
+                <p><b>Altura: ${objeto.altura}</b></p>
+                <p><b>Peso: ${objeto.peso}</b></p>
+                <p><b>Áreas de ubicación: ${objeto.areaUbicacion}</b></p>
             </div>
 
             <div>
-                <h4>Hbilidades</h4>
-                <p><b>Nombre:${objeto.habilidad}</b></p>
-                <p><b>Efecto:${objeto.efecto}</b></p>
-                <p><b>Texto de ambientación: :${objeto.texto1}</b></p>
+                <h4>Habilidades</h4>
+                <p><b>Nombre: ${objeto.habilidad}</b></p>
+                <p><b>Efecto: ${objeto.efecto}</b></p>
+                <p><b>Texto de ambientación: ${objeto.texto1}</b></p>
             </div>
 
             <div>
                 <h4>Movimientos</h4>
-                <p><b>Nombre:${objeto.movimiento}</b></p>
-                <p><b>Poder:${objeto.poder}</b></p>
-                <p><b>Texto de ambientación:${objeto.texto2}</b></p>
+                <p><b>Nombre: ${objeto.movimiento}</b></p>
+                <p><b>Poder: ${objeto.poder}</b></p>
+                <p><b>Texto de ambientación: ${objeto.texto2}</b></p>
             </div>
 `
 
