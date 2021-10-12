@@ -7,11 +7,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/styles.css">
     <link rel="stylesheet" href="../vendor/fontawesome-free/css/all.min.css">
+    
+    
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+    <link rel="stylesheet" type="text/css" href="./style.css" />
+    <script src="../js/ubicacion.js"></script>
     <title>PokeApp</title>
+
 </head>
 
-<body onresize="resize()">
-    <div class="container-ubicacion">
+<body>
+        <div class="container-ubicacion">
         <header class="header">
             <div class="brand">
                 <button id="btnMenu" type="button" class="btn btn-info text-light"><i class="fas fa-bars"></i></button>
@@ -28,11 +34,11 @@
                     class="fas fa-cart-arrow-down"></i></a>
         </header>
         <main class="main p-1">
-            
-            <div class="card text-light" style="width: 100%;">
-                <div class="card-header">Nuestras oficinas</div>
-                <div class="card-body">
 
+            <div class="card text-light" style="width: auto;">
+                <div class="card-header">Nuestras oficinas</div>
+                <div class="card-body container-mapa">
+                    <div class="mapa" id="map"></div>
                 </div>
             </div>
         </main>
@@ -47,8 +53,12 @@
 
 
     </div>
-    <script src="../vendor/jquery/jquery.slim.min.js"></script>
-    <script src="../js/index.js"></script>
+    
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAB2D8PAeeIGoZ0YJmcbRTiz2rwO4wFIxk&callback=initMap&v=weekly"
+      async
+    ></script>
 </body>
 
 </html>
+

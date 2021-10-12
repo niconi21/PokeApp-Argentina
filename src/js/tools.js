@@ -22,10 +22,7 @@ overlay = document.getElementById('overlay'),
 popup = document.getElementById('popup');
 
 function abrirModal(objeto) {
-    
 
-
-    // let pokemon = listPokemones[index];
     popup.innerHTML = `
 <a href="#" id="btn-cerrar-popup" class="btn-cerrar-popup"><i class="fas fa-times"></i></a>
             <h2>${objeto.nombre}</h2>
