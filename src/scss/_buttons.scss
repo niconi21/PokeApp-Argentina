@@ -1,0 +1,18 @@
+.btn{
+    padding: $btn-padding;
+    border-radius:$btn-border-radius;
+    border: $btn-border;
+    box-shadow:$btn-box-shadow;
+    text-decoration:$btn-text-decoration;
+    color: $white;
+    
+}
+.btn-circle{
+    border-radius: $btn-circle-border-radius;
+    background-color: $btn-circle-background-color;
+    color: $btn-circle-color;
+}
+
+.btn-block{
+    width: 100%;
+}

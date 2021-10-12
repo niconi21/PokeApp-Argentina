@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../vendor/fontawesome-free/css/all.min.css">
+    <title>PokeApp</title>
+</head>
+
+<body onresize="resize()">
+    <div class="container-productos">
+        <header class="header">
+            <div class="brand">
+                <button id="btnMenu" type="button" class="btn btn-info text-light"><i class="fas fa-bars"></i></button>
+                <img src="../img/logo.png" width="100px" alt="">
+            </div>
+
+            <ul>
+                <li class="nav-item"><a href="./index.html">Inicio</a></li>
+                <li class="nav-item"><a href="./productos.html">Productos</a></li>
+                <li class="nav-item"><a href="./ubicación.html">Ubicación</a></li>
+                <li class="nav-item"><a href="./acercaDe.html">Acerca de</a></li>
+            </ul>
+            <a href="./carrito.html" type="button" class="btn btn-success text-light text-center nav-item"><i
+                    class="fas fa-cart-arrow-down"></i></a>
+        </header>
+        <main class="main p-1">
+            <form class="form mb-2">
+                <div>
+                    <input type="search" placeholder="Buscar pokemon" id="busqueda">
+                    <input type="button" value="Buscar" class="btn btn-info" id="boton1">
+                </div>
+                <label for="cbPokemon">
+                    <input type="radio" name="radioB" value="pokemon" checked>
+                    Pokemon
+                </label>
+                <label for="cbBerries">
+                    <input type="radio" name="radioB" value="berries">
+                    Berries
+                </label>
+                <label for="cbItem">
+                    <input type="radio" name="radioB" value="items">
+                    Items
+                </label>
+            </form>
+            <h1 class="text-light">Resultado de la busqueda</h1>
+            <div class="card-columns text-light text-center" id="cardsPokemon">
+
+
+            </div>
+        </main>
+        <footer class="footer text-light text-center">
+            <p>&copy;PokeApp 2021</p>
+            <p>Iván Cordova Rodriguez</p>
+            <p>Nicolas Moreno Duran</p>
+        </footer>
+
+
+
+
+
+    </div>
+    <script src="../vendor/jquery/jquery-3.6.0.min.js"></script>
+    <script src="../js/productos.js"></script>
+    <script src="../js/tools.js"></script>
+</body>
+
+</html>
