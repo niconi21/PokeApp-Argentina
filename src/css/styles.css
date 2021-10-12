@@ -821,6 +821,17 @@ body {
   grid-template-rows: auto minmax(500px, auto) auto;
   grid-template-areas: "header header header" "menu   main   main   " "footer footer footer";
 }
+@media screen and (max-width: 850px) {
+  .container-index {
+    grid-template-rows: auto auto auto auto;
+    grid-template-areas: "header header header" "menu    menu    menu " "main main   main" "footer footer footer";
+  }
+  .container-index .menu form {
+    width: 100%;
+    display: flex;
+    flex-flow: column wrap;
+  }
+}
 
 .container-productos {
   display: grid;

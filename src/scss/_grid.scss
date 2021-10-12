@@ -9,7 +9,24 @@ body {
     "header header header"
     "menu   main   main   "
     "footer footer footer";
+  @media screen and (max-width: 850px) {
+    grid-template-rows: auto auto auto auto;
+    grid-template-areas:
+      "header header header"
+      "menu    menu    menu "
+      "main main   main"
+      "footer footer footer";
+    .menu{
+      form{
+        width: 100%;
+        display: flex;
+        flex-flow: column wrap;
+
+      }
+    }
+  }
 }
+
 .container-productos {
   display: grid;
   grid-template-columns: 0.4fr 1fr 1fr;
@@ -155,13 +172,12 @@ body {
 .container {
   display: flex;
   justify-content: center;
-  
 }
 .container-2 {
   display: flex;
   justify-content: center;
   column-gap: 1rem;
-  .card{
+  .card {
     width: 40%;
   }
 }
