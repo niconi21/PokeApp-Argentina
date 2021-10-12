@@ -33,7 +33,6 @@
 }
 
 .card-columns{
-    padding: $card-columns-padding;
     display: grid;
     grid-template-columns: repeat(4,auto);
     gap: $card-columns-gap;

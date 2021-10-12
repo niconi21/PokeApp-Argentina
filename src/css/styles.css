@@ -759,7 +759,6 @@
 }
 
 .card-columns {
-  padding: 1rem 1rem;
   display: grid;
   grid-template-columns: repeat(4, auto);
   gap: 1rem;
