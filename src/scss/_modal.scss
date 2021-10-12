@@ -52,7 +52,7 @@
 	margin-top: 1rem;
 	font-size: 26px;
 	font-weight: 300;
-	opacity: 0;
+	opacity: 1;
 }
 
 
@@ -63,35 +63,3 @@
 /* ANIMACIONES */
 /* ------------------------- */
 .popup.active {	transform: scale(1); opacity: 1; }
-.popup.active h3 { opacity: 1; }
-.popup.active h4 { opacity: 1; }
-.popup.active .contenedor-inputs { opacity: 1; }
-
-// @keyframes entradaTitulo {
-// 	from {
-// 		opacity: 0;
-// 		transform: translateY(-25px);
-// 	}
-
-// 	to {
-// 		transform: translateY(0);
-// 		opacity: 1;
-// 	}
-// }
-
-// @keyframes entradaSubtitulo {
-// 	from {
-// 		opacity: 0;
-// 		transform: translateY(25px);
-// 	}
-
-// 	to {
-// 		transform: translateY(0);
-// 		opacity: 1;
-// 	}
-// }
-
-// @keyframes entradaInputs {
-// 	from { opacity: 0; }
-// 	to { opacity: 1; }
-// }
