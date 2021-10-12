@@ -1,8 +1,6 @@
-
-
-
-
-
+let listPokemones = [];
+let listBerries = [];
+let listItems = [];
 
 function createFieldSearch(datos) {
     return $.ajax({
@@ -34,13 +32,19 @@ function llenarCardsPokemon(url) {
         let consulta = resultado.results;
         let urlNext = resultado.next;
         localStorage.setItem("nextUrlPokemon", urlNext);
-        consulta.forEach(pokemon => {
+        consulta.forEach((pokemon, index) => {
             var nombrePokemon = pokemon.name;
             createFieldSearch(`${pokemon.url}`).done((resultado) => {
                 let pokemonSprits = resultado.sprites;
                 let costPokemon = resultado.base_experience;
                 createFieldSearch(`https://pokeapi.co/api/v2/ability/${resultado.id}/`).done((resultado) => {
                     let pokemonChar = resultado.effect_entries;
+                    listPokemones.push({
+                        nombre: nombrePokemon,
+                        costo: costPokemon,
+                        descripcion:pokemonChar[1].short_effect,
+                        img: pokemonSprits.front_default
+                    })
                     $("#cardsPokemon").append(`
                     <div class="card border-secondary " id="card1">
                         <div class="card-header">
@@ -52,7 +56,8 @@ function llenarCardsPokemon(url) {
                             <p class="text-justify p-1">${pokemonChar[1].short_effect}</p>
                         </div>
                         <div class="card-footer">
-                        <button class="btn btn-info text-light" id="prueba"><i class="fas fa-eye"></i>
+                        
+                        <button class="btn btn-info text-light"><i class="fas fa-eye"></i>
                         Ver más</button>
                     <button class="btn btn-primary text-light" id="prueba"><i class="fas fa-share"></i>
                         Compartir</button>
@@ -82,6 +87,11 @@ function llenarCardsBerries(url) {
                     let effectBarry = resultado.effect_entries[0].effect;
                     let spritesBarry = resultado.sprites.default;
                     let costBarry = resultado.cost;
+                    listBerries.push({
+                        nombre: nameBarry,
+                        costo: costBarry,
+                        descripcion: effectBarry
+                    })
                     $("#cardsBarry").append(`
                     <div class="card border-secondary elevation-2" id="card1">
                         <div class="card-header">
@@ -117,6 +127,11 @@ function llenarCardsItem(url) {
                 let costItem = resultado.cost;
                 let effectItem = resultado.effect_entries[0].effect;
                 let spriteItem = resultado.sprites.default;
+                listItems.push({
+                    nombre:nombreItem,
+                    costo: costItem,
+                    descripcion: effectItem
+                })
                 $("#cardsItem").append(`
                 <div class="card border-secondary elevation-2" id="card1">
                     <div class="card-header">
