@@ -1,0 +1,77 @@
+@each $color, $value in $grays {
+  .gray-#{$color} {
+    color: $value;
+  }
+  .text-gray-#{$color} {
+    color: $value;
+  }
+}
+
+@each $color, $value in $theme-colors {
+  .bg-#{$color} {
+    background-color: $value;
+  }
+
+  .bg-transparent-#{$color} {
+    background-color: rgba($color: $value, $alpha: 0.5);
+  }
+
+  .text-#{$color} {
+    color: $value;
+  }
+
+  .border-#{$color} {
+    border: $border-width solid $value !important;
+  }
+
+  .border-left-#{$color} {
+    border-left: $border-width solid $value !important;
+  }
+
+  .border-right-#{$color} {
+    border-right: $border-width solid $value !important;
+  }
+
+  .border-top-#{$color} {
+    border-top: $border-width solid $value !important;
+  }
+
+  .border-bottom-#{$color} {
+    border-bottom: $border-width solid $value !important;
+  }
+
+  .card-#{$color} {
+    background-color: $value;
+  }
+  .card-#{$color}:hover {
+    background-color: rgba($color: rgba(255, 255, 255, 0.068), $alpha: 0.1);
+  }
+
+  .btn-#{$color} {
+    background-color: $value;
+  }
+  .btn-#{$color}:hover {
+    background-color: rgba($color: $value, $alpha: 0.8);
+    color: $gray-200;
+    cursor: pointer;
+  }
+}
+
+@each $margin, $value in $margins {
+  .m-#{$margin} {
+    margin:  $value $value;
+  }
+  .mt-#{$margin}  { margin-top: $value;}
+  .mb-#{$margin}  { margin-bottom: $value;}
+  .ml-#{$margin}  { margin-left: $value;}
+  .mr-#{$margin}  { margin-right: $value;}
+}
+@each $padding, $value in $paddings {
+  .p-#{$padding} {
+    padding: $value $value;
+  }
+  .pt-#{$padding}  { padding-top: $value;}
+  .pb-#{$padding}  { padding-bottom: $value;}
+  .pl-#{$padding}  { padding-left: $value;}
+  .pr-#{$padding}  { padding-right: $value;}
+}

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../vendor/fontawesome-free/css/all.min.css">
+    <title>PokeApp</title>
+</head>
+
+<body onresize="resize()">
+    <div class="container-index">
+        <header class="header">
+            <div class="brand">
+                <button id="btnMenu" type="button" class="btn btn-info text-light"><i class="fas fa-bars"></i></button>
+                <img src="../img/logo.png" width="100px" alt="">
+            </div>
+
+            <ul>
+                <li class="nav-item"><a href="./index.html">Inicio</a></li>
+                <li class="nav-item"><a href="./productos.html">Productos</a></li>
+                <li class="nav-item"><a href="./ubicación.html">Ubicación</a></li>
+                <li class="nav-item"><a href="./acercaDe.html">Acerca de</a></li>
+            </ul>
+            <a href="./carrito.html" type="button" class="btn btn-success text-light text-center nav-item"><i
+                    class="fas fa-cart-arrow-down"></i></a>
+        </header>
+        <menu class="menu ">
+            <form action="">
+                <input type="search" placeholder="Buscar">
+                <input type="submit" value="Buscar" class="btn btn-info">
+            </form>
+            <ul>
+                <li><a href="">Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet in, eaque enim quisquam
+                        possimus expedita veniam ea at ut dolore labore vel ducimus deleniti non, quas voluptatum
+                        mollitia, sit voluptas?</a></li>
+                <li><a href="">Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet in, eaque enim quisquam
+                        possimus expedita veniam ea at ut dolore labore vel ducimus deleniti non, quas voluptatum
+                        mollitia, sit voluptas?</a></li>
+                <li><a href="">Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet in, eaque enim quisquam
+                        possimus expedita veniam ea at ut dolore labore vel ducimus deleniti non, quas voluptatum
+                        mollitia, sit voluptas?</a></li>
+                <li><a href="">Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet in, eaque enim quisquam
+                        possimus expedita veniam ea at ut dolore labore vel ducimus deleniti non, quas voluptatum
+                        mollitia, sit voluptas?</a></li>
+                <li><a href="">Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet in, eaque enim quisquam
+                        possimus expedita veniam ea at ut dolore labore vel ducimus deleniti non, quas voluptatum
+                        mollitia, sit voluptas?</a></li>
+                <li><a href="">Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet in, eaque enim quisquam
+                        possimus expedita veniam ea at ut dolore labore vel ducimus deleniti non, quas voluptatum
+                        mollitia, sit voluptas?</a></li>
+            </ul>
+        </menu>
+        <main class="main p-1">
+            <h1 class="text-light">Pokemones más famosos</h1>
+            <div id="cardsPokemon" class="card-columns text-light text-center">
+            </div>
+            <button id="botonMasPokemon" class="btn btn-info btn-block"><i class="fas fa-eye"></i> Ver más</button>
+            <h1 class="text-light">Berries</h1>
+            <div id="cardsBarry" class="card-columns text-light text-center">
+            </div>
+            <button id="botonMasBerries"     class="btn btn-info btn-block"><i class="fas fa-eye"></i> Ver más</button>
+            
+            <h1 class="text-light">Items</h1>
+            <div id="cardsItem" class="card-columns text-light text-center">
+            </div>
+            <button id="botonMasItem" class="btn btn-info btn-block"><i class="fas fa-eye"></i> Ver más</button>
+        </main>
+        <footer class="footer text-light text-center">
+            <p>&copy;PokeApp 2021</p>
+            <p>Iván Cordova Rodriguez</p>
+            <p>Nicolas Moreno Duran</p>
+        </footer>
+
+
+
+
+
+    </div>
+    <script src="../vendor/jquery/jquery-3.6.0.min.js"></script>
+    <script src="../js/index.js"></script>
+    <script src="../js/tools.js"></script>
+</body>
+
+</html>

@@ -1,12 +1,4 @@
 
-$('#btn-menu').click(() => {
-    let items = document.getElementsByClassName('nav-item');
-    for (let index = 0; index < items.length; index++) {
-        items[index].classList.toggle('oculto')
-
-    }
-})
-
 function createFieldSearch(datos) {
     return $.ajax({
         url: `${datos}`,
@@ -27,17 +19,21 @@ function llenarCardsItems(url){
         let effectItem = resultado.effect_entries[0].effect;
         let spriteItem = resultado.sprites.default;
         $("#cardsPokemon").append(`
-        <div class="card-producto border-secondary elevation-2" id="card1">
-            <div class="card-producto-header">
+        <div class="card border-secondary" id="card1">
+            <div class="card-header">
                 <img src="${spriteItem}" width="100px">
+                <p class="text-warning">${nombreItem}: $${costItem}</p>
             </div>
-            <div class="card-producto-body">
-                <h2 class="text-warning">${nombreItem}: $${costItem}</h2>
-                <p class="text-justify">${effectItem}</p>
+            <div class="card-body">
+                <p class="text-justify p-1">${effectItem}</p>
             </div>
             <div class="card-producto-footer">
-                <button class="btn btn-info text-light" id="prueba"><i class="text-dark fas fa-share"></i>
-                    Compartir</button>
+            <button class="btn btn-info text-light" id="prueba"><i class="fas fa-eye"></i>
+            Ver más</button>
+        <button class="btn btn-primary text-light" id="prueba"><i class="fas fa-share"></i>
+            Compartir</button>
+        <button class="btn btn-success text-light" id="prueba"><i class="fas fa-cart-plus"></i>
+            Agregar al carrito</button>
             </div>
         </div>`);
     })
@@ -53,17 +49,21 @@ function llenarCardsPokemon(url){
         createFieldSearch(`https://pokeapi.co/api/v2/ability/${resultado.id}/`).done((resultado)=>{
             let pokemonChar = resultado.effect_entries;
             $("#cardsPokemon").append(`
-            <div class="card-producto border-secondary elevation-2" id="card1">
-                <div class="card-producto-header">
+            <div class="card border-secondary elevation-2" id="card1">
+                <div class="card-header">
                     <img src="${pokemonSprits.front_default}" width="100px">
+                    <p class="text-warning">${namePokemon}: $${costPokemon}</p>
                 </div>
-                <div class="card-producto-body">
-                    <h2 class="text-warning">${namePokemon}: $${costPokemon}</h2>
-                    <p class="text-justify">${pokemonChar[1].short_effect}</p>
+                <div class="card-body">
+                    <p class="text-justify p-1">${pokemonChar[1].short_effect}</p>
                 </div>
-                <div class="card-producto-footer">
-                    <button class="btn btn-info text-light" id="prueba"><i class="text-dark fas fa-share"></i>
-                        Compartir</button>
+                <div class="card-footer">
+                <button class="btn btn-info text-light" id="prueba"><i class="fas fa-eye"></i>
+                Ver más</button>
+            <button class="btn btn-primary text-light" id="prueba"><i class="fas fa-share"></i>
+                Compartir</button>
+            <button class="btn btn-success text-light" id="prueba"><i class="fas fa-cart-plus"></i>
+                Agregar al carrito</button>
                 </div>
             </div>`);
 
@@ -83,17 +83,21 @@ function llenarCardsBerry(url){
             let costBarry = resultado.cost;
             console.log(spritesBarry);
             $("#cardsPokemon").append(`
-            <div class="card-producto border-secondary elevation-2" id="card1">
-                <div class="card-producto-header">
+            <div class="card border-secondary elevation-2" id="card1">
+                <div class="card-header">
                     <img src="${spritesBarry}" width="100px">
+                    <p class="text-warning">${nameBarry}: $${costBarry}</p>
                 </div>
-                <div class="card-producto-body">
-                    <h2 class="text-warning">${nameBarry}: $${costBarry}</h2>
-                    <p class="text-justify">${effectBarry}</p>
+                <div class="card-body">
+                    <p class="text-justify p-1">${effectBarry}</p>
                 </div>
                 <div class="card-producto-footer">
-                    <button class="btn btn-info text-light" id="prueba"><i class="text-dark fas fa-share"></i>
-                        Compartir</button>
+                <button class="btn btn-info text-light" id="prueba"><i class="fas fa-eye"></i>
+                Ver más</button>
+            <button class="btn btn-primary text-light" id="prueba"><i class="fas fa-share"></i>
+                Compartir</button>
+            <button class="btn btn-success text-light" id="prueba"><i class="fas fa-cart-plus"></i>
+                Agregar al carrito</button>
                 </div>
             </div>`);
         });
