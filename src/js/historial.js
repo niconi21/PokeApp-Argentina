@@ -6,7 +6,7 @@ $().ready(() => {
         <div class="card border-secondary ">
                         <div class="card-header">
                             <img src="${pokemon.img}" width="100px">
-                            <p class="text-warning">${pokemon.nombre}: $xd</p>
+                            <p class="text-warning">${pokemon.nombre}: $${pokemon.costo}</p>
 
                         </div>
                         <div class="card-body">

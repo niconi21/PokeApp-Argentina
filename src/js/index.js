@@ -41,6 +41,7 @@ $(document).ready(function () {
 function llenarModalPokemon(nombre) {
     createFieldSearch(`https://pokeapi.co/api/v2/pokemon/${nombre}`).done((resultado) => {
         let nombrePokemon = resultado.name;
+        let costo = resultado.base_experience;
         let spritePokemon = resultado.sprites.front_default;
         let alturaPokemon = resultado.height;
         let pesoPokemon = resultado.weight;
@@ -57,6 +58,7 @@ function llenarModalPokemon(nombre) {
                     let powerMovePokemon = resultado.power;
                     let moveTextPokemon = resultado.flavor_text_entries[1].flavor_text;
                     let objeto = {
+                        costo,
                         nombre: `${nombrePokemon}`,
                         img: `${spritePokemon}`,
                         altura: `${alturaPokemon} decimetres`,
@@ -80,6 +82,7 @@ function llenarModalPokemon(nombre) {
 function llenarCarritoPokemon(nombre) {
     createFieldSearch(`https://pokeapi.co/api/v2/pokemon/${nombre}`).done((resultado) => {
         let nombrePokemon = resultado.name;
+        let costo = resultado.base_experience;
         let spritePokemon = resultado.sprites.front_default;
         let alturaPokemon = resultado.height;
         let pesoPokemon = resultado.weight;
@@ -96,6 +99,7 @@ function llenarCarritoPokemon(nombre) {
                     let powerMovePokemon = resultado.power;
                     let moveTextPokemon = resultado.flavor_text_entries[1].flavor_text;
                     let objeto = {
+                        costo,
                         nombre: `${nombrePokemon}`,
                         img: `${spritePokemon}`,
                         altura: `${alturaPokemon} decimetres`,
@@ -115,8 +119,6 @@ function llenarCarritoPokemon(nombre) {
         })
     })
 }
-
-
 function llenarCardsPokemon(url) {
     createFieldSearch(`${url}`).done((resultado) => {
         //Nombre.................................................
