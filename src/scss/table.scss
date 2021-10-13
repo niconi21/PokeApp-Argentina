@@ -5,23 +5,32 @@
 
   thead {
     font-weight: 600;
-    th{
-        background-color: rgb(97, 96, 96);
-        text-align: center;
-        padding: 10px;
-    }
-    
-  }
-
-  tbody{
-  
-    tr:hover{
-      background-color: #464545;  
+    th {
+      background-color: rgb(97, 96, 96);
+      text-align: center;
+      padding: 10px;
     }
   }
 
-  tfoot{
-      text-align: right;
-      font-weight: 600;
+  tbody {
+    tr:hover {
+      background-color: #464545;
+    }
   }
+
+  tfoot {
+    text-align: right;
+    font-weight: 600;
+  }
+
+  @media screen and (max-width: 320px) {
+    .table {
+      display: block;
+      overflow-x: auto;
+    }
+  }
+}
+
+.container-table{
+  overflow-x: scroll
 }

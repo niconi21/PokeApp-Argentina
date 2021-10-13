@@ -1096,6 +1096,16 @@ body {
   text-align: right;
   font-weight: 600;
 }
+@media screen and (max-width: 320px) {
+  .table .table {
+    display: block;
+    overflow-x: auto;
+  }
+}
+
+.container-table {
+  overflow-x: scroll;
+}
 
 * {
   padding: 0;
