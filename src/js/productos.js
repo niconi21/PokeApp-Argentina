@@ -80,6 +80,7 @@ function llenarModalPokemon(nombre){
                         texto2: `" ${moveTextPokemon} "`
                     }
                     abrirModal(objeto);
+                    setVistos(objeto)
                 })
             })
         })
