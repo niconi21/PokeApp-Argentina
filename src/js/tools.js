@@ -1,3 +1,4 @@
+
 $('#btnMenu').click(() => {
     let items = document.getElementsByClassName('nav-item');
     for (let index = 0; index < items.length; index++) {
@@ -5,6 +6,7 @@ $('#btnMenu').click(() => {
 
     }
 })
+
 function resize() {
     var widthBrowser = window.outerWidth;
     if (widthBrowser > 800) {
@@ -16,10 +18,9 @@ function resize() {
     }
 }
 
-
 var btnAbrirPopup = document.getElementById('btn-abrir-popup'),
-overlay = document.getElementById('overlay'),
-popup = document.getElementById('popup');
+    overlay = document.getElementById('overlay'),
+    popup = document.getElementById('popup');
 
 function abrirModal(objeto) {
 
@@ -52,8 +53,6 @@ function abrirModal(objeto) {
 
     overlay.classList.add('active');
     popup.classList.add('active');
-
-
     btnCerrarPopup = document.getElementById('btn-cerrar-popup');
 
     btnCerrarPopup.addEventListener('click', function (e) {
@@ -63,4 +62,33 @@ function abrirModal(objeto) {
     });
 }
 
+function setVistos(objeto) {
+    pokemonesVistos = JSON.parse(localStorage.getItem('vistos'));
+    let existe = false;
+    pokemonesVistos.forEach(pokemon => {
+        if (pokemon.nombre == objeto.nombre)
+            existe = true;
+    });
+    if (!existe)
+        pokemonesVistos.push(objeto);
+    localStorage.setItem('vistos', JSON.stringify(pokemonesVistos));
+}
 
+function setCarrito(objeto) {
+    pokemonesVistos = JSON.parse(localStorage.getItem('carrito'));
+    let existe = false;
+    pokemonesVistos.forEach(pokemon => {
+        if (pokemon.nombre == objeto.nombre)
+            existe = true;
+    });
+    if (!existe)
+        pokemonesVistos.push(objeto);
+    localStorage.setItem('carrito', JSON.stringify(pokemonesVistos));
+}
+
+
+function crearArreglosLocalStorage() {
+    if(localStorage.getItem('vistos') == null)
+    {localStorage.setItem('vistos', '[]');
+    localStorage.setItem('carrito', '[]');}
+}

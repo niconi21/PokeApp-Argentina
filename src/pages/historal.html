@@ -11,7 +11,7 @@
 </head>
 
 <body onresize="resize()">
-    <div class="container-productos">
+    <div class="container-historial">
         <header class="header">
             <div class="brand">
                 <button id="btnMenu" type="button" class="btn btn-info text-light"><i class="fas fa-bars"></i></button>
@@ -28,48 +28,29 @@
             <a href="./carrito.html" type="button" class="btn btn-success text-light text-center nav-item"><i
                     class="fas fa-cart-arrow-down"></i></a>
         </header>
-        <main class="main p-1">
-            <form class="form mb-2">
-                <div>
-                    <input type="search" placeholder="Buscar pokemon" id="busqueda">
-                    <input type="button" value="Buscar" class="btn btn-info" id="boton1">
-                </div>
-                <label for="cbPokemon">
-                    <input type="radio" name="radioB" value="pokemon" checked>
-                    Pokemon
-                </label>
-                <label for="cbBerries">
-                    <input type="radio" name="radioB" value="berries">
-                    Berries
-                </label>
-                <label for="cbItem">
-                    <input type="radio" name="radioB" value="items">
-                    Items
-                </label>
-            </form>
-            <h1 class="text-light">Resultado de la busqueda</h1>
-            <div class="card-columns text-light text-center" id="cardsPokemon">
-
+        
+        <main class="main p-1 pr-1">
+            <h1 class="text-light">Historial de pokemones vistos</h1>
+            <div id="cardsPokemonVistos" class="card-columns text-light text-center p-2">
 
             </div>
         </main>
+
         <footer class="footer text-light text-center">
             <p>&copy;PokeApp 2021</p>
             <p>Iván Cordova Rodriguez</p>
             <p>Nicolas Moreno Duran</p>
         </footer>
+    </div>
 
 
-        <div class="overlay" id="overlay">
-            <div class="popup" id="popup">
-            </div>
+    <div class="overlay" id="overlay">
+        <div class="popup" id="popup">
         </div>
-
-
     </div>
     <script src="../vendor/jquery/jquery-3.6.0.min.js"></script>
-    <script src="../js/productos.js"></script>
     <script src="../js/tools.js"></script>
+    <script src="../js/historial.js"></script>
 </body>
 
 </html>

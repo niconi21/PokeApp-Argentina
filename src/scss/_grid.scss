@@ -54,6 +54,15 @@ body {
     "main   main   main"
     "footer footer footer";
 }
+.container-historial {
+  display: grid;
+  grid-template-columns: 0.4fr 1fr 1fr;
+  grid-template-rows: auto minmax(500px, auto) auto;
+  grid-template-areas:
+    "header header header"
+    "main   main   main"
+    "footer footer footer";
+}
 
 .header {
   padding: 1rem 2rem;
@@ -176,10 +185,16 @@ body {
 }
 .container-2 {
   display: flex;
+  flex-flow: row nowrap;
   justify-content: center;
   column-gap: 1rem;
   .card {
     width: 40%;
+  }
+  @media screen and (max-width:800px) {
+    flex-flow: column nowrap;
+    row-gap: 2rem;
+    .card{width: 90%;}
   }
 }
 

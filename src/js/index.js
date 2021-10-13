@@ -27,15 +27,19 @@ $("#botonMasItem").click(() => {
 })
 
 
-$(document).ready(function(){
-    $('body').on('click', '.botonVerPokemon', function(e){
+$(document).ready(function () {
+    $('body').on('click', '.botonVerPokemon', function (e) {
         let nombrePokemon = $(e.target.querySelector('div')).text();
         llenarModalPokemon(nombrePokemon);
     })
-  })
+    $('body').on('click', '.botonCarritoPokemon', function (e) {
+        let nombrePokemon = $(e.target.querySelector('div')).text();
+        llenarCarritoPokemon(nombrePokemon);
+    })
+})
 
-function llenarModalPokemon(nombre){
-    createFieldSearch(`https://pokeapi.co/api/v2/pokemon/${nombre}`).done((resultado)=>{
+function llenarModalPokemon(nombre) {
+    createFieldSearch(`https://pokeapi.co/api/v2/pokemon/${nombre}`).done((resultado) => {
         let nombrePokemon = resultado.name;
         let spritePokemon = resultado.sprites.front_default;
         let alturaPokemon = resultado.height;
@@ -44,12 +48,12 @@ function llenarModalPokemon(nombre){
         let abilityUrlPokemon = resultado.abilities[0].ability.url;
         let movePokemon = resultado.moves[0].move.name;
         let moveUrlPokemon = resultado.moves[0].move.url;
-        createFieldSearch(`https://pokeapi.co/api/v2/pokemon-species/${nombrePokemon}/`).done((resultado)=>{
+        createFieldSearch(`https://pokeapi.co/api/v2/pokemon-species/${nombrePokemon}/`).done((resultado) => {
             let habitatPokemon = resultado.habitat.name;
-            createFieldSearch(abilityUrlPokemon).done((resultado)=>{
+            createFieldSearch(abilityUrlPokemon).done((resultado) => {
                 let effectPokemon = resultado.effect_entries[1].short_effect;
                 let effectTextPokemon = resultado.flavor_text_entries[0].flavor_text;
-                createFieldSearch(moveUrlPokemon).done((resultado)=>{
+                createFieldSearch(moveUrlPokemon).done((resultado) => {
                     let powerMovePokemon = resultado.power;
                     let moveTextPokemon = resultado.flavor_text_entries[1].flavor_text;
                     let objeto = {
@@ -65,7 +69,47 @@ function llenarModalPokemon(nombre){
                         poder: `${powerMovePokemon} points`,
                         texto2: `" ${moveTextPokemon} "`
                     }
+                    setVistos(objeto)
                     abrirModal(objeto);
+                })
+            })
+        })
+    })
+}
+
+function llenarCarritoPokemon(nombre) {
+    createFieldSearch(`https://pokeapi.co/api/v2/pokemon/${nombre}`).done((resultado) => {
+        let nombrePokemon = resultado.name;
+        let spritePokemon = resultado.sprites.front_default;
+        let alturaPokemon = resultado.height;
+        let pesoPokemon = resultado.weight;
+        let abilityPokemon = resultado.abilities[0].ability.name;
+        let abilityUrlPokemon = resultado.abilities[0].ability.url;
+        let movePokemon = resultado.moves[0].move.name;
+        let moveUrlPokemon = resultado.moves[0].move.url;
+        createFieldSearch(`https://pokeapi.co/api/v2/pokemon-species/${nombrePokemon}/`).done((resultado) => {
+            let habitatPokemon = resultado.habitat.name;
+            createFieldSearch(abilityUrlPokemon).done((resultado) => {
+                let effectPokemon = resultado.effect_entries[1].short_effect;
+                let effectTextPokemon = resultado.flavor_text_entries[0].flavor_text;
+                createFieldSearch(moveUrlPokemon).done((resultado) => {
+                    let powerMovePokemon = resultado.power;
+                    let moveTextPokemon = resultado.flavor_text_entries[1].flavor_text;
+                    let objeto = {
+                        nombre: `${nombrePokemon}`,
+                        img: `${spritePokemon}`,
+                        altura: `${alturaPokemon} decimetres`,
+                        peso: `${pesoPokemon} hectograms`,
+                        areaUbicacion: `${habitatPokemon}`,
+                        habilidad: `${abilityPokemon}`,
+                        efecto: `${effectPokemon}`,
+                        texto1: `" ${effectTextPokemon} "`,
+                        movimiento: `${movePokemon}`,
+                        poder: `${powerMovePokemon} points`,
+                        texto2: `" ${moveTextPokemon} "`
+                    }
+                    setCarrito(objeto)
+                    // abrirModal(objeto);
                 })
             })
         })
@@ -89,7 +133,7 @@ function llenarCardsPokemon(url) {
                     listPokemones.push({
                         nombre: nombrePokemon,
                         costo: costPokemon,
-                        descripcion:pokemonChar[1].short_effect,
+                        descripcion: pokemonChar[1].short_effect,
                         img: pokemonSprits.front_default
                     })
                     $("#cardsPokemon").append(`
@@ -106,9 +150,9 @@ function llenarCardsPokemon(url) {
                         
                         <button class="btn btn-info text-light botonVerPokemon"><div hidden>${nombrePokemon}</div><i class="fas fa-eye"></i>
                         Ver más</button>
-                    <button class="btn btn-primary text-light" id="prueba"><i class="fas fa-share"></i>
+                    <button class="btn btn-primary text-light" id="prueba"><div hidden>${nombrePokemon}</div><i class="fas fa-share"></i>
                         Compartir</button>
-                    <button class="btn btn-success text-light" id="prueba"><i class="fas fa-cart-plus"></i>
+                        <button class="btn btn-success text-light botonCarritoPokemon" id="prueba"><div hidden>${nombrePokemon}</div><i class="fas fa-cart-plus"></i>
                         Agregar al carrito</button>
                         </div>
                     </div>`);
@@ -175,7 +219,7 @@ function llenarCardsItem(url) {
                 let effectItem = resultado.effect_entries[0].effect;
                 let spriteItem = resultado.sprites.default;
                 listItems.push({
-                    nombre:nombreItem,
+                    nombre: nombreItem,
                     costo: costItem,
                     descripcion: effectItem
                 })

@@ -10,7 +10,7 @@
     <title>PokeApp</title>
 </head>
 
-<body onresize="resize()">
+<body onresize="resize()" onload="crearArreglosLocalStorage()">
     <div class="container-index">
         <header class="header">
             <div class="brand">
@@ -21,6 +21,7 @@
             <ul>
                 <li class="nav-item"><a href="./index.html">Inicio</a></li>
                 <li class="nav-item"><a href="./productos.html">Productos</a></li>
+                <li class="nav-item"><a href="./historal.html">Historial</a></li>
                 <li class="nav-item"><a href="./ubicación.html">Ubicación</a></li>
                 <li class="nav-item"><a href="./acercaDe.html">Acerca de</a></li>
             </ul>
@@ -82,8 +83,8 @@
         </div>
     </div>
     <script src="../vendor/jquery/jquery-3.6.0.min.js"></script>
-    <script src="../js/index.js"></script>
     <script src="../js/tools.js"></script>
+    <script src="../js/index.js"></script>
 </body>
 
 </html>
