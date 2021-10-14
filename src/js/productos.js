@@ -28,11 +28,11 @@ function llenarCardsItems(url){
                 <p class="text-justify p-1">${effectItem}</p>
             </div>
             <div class="card-producto-footer">
-            <button class="btn btn-info text-light" id="prueba"><i class="fas fa-eye"></i>
+            <button class="btn btn-info text-light botonVerItem"><div hidden>${nombreItem}</div><i class="fas fa-eye"></i>
             Ver más</button>
-        <button class="btn btn-primary text-light" id="prueba"><i class="fas fa-share"></i>
+        <button class="btn btn-primary text-light"><i class="fas fa-share"></i>
             Compartir</button>
-        <button class="btn btn-success text-light" id="prueba"><i class="fas fa-cart-plus"></i>
+        <button class="btn btn-success text-light"><i class="fas fa-cart-plus"></i>
             Agregar al carrito</button>
             </div>
         </div>`);
@@ -51,7 +51,41 @@ $(document).ready(function(){
         let nombreBerry = $(e.target.querySelector('div')).text();
         llenarModalBerri(nombreBerry);
     })
+
+    $('body').on('click', '.botonVerItem', function (e) {
+        let nombreItem = $(e.target.querySelector('div')).text();
+        llenarModalItem(nombreItem);
+    })
   })
+
+  function llenarModalItem(nombreItem){
+    createFieldSearch(`https://pokeapi.co/api/v2/item/${nombreItem}`).done((resultado)=>{
+        let nombreItem = resultado.name;
+        let efectoItem = resultado.effect_entries[0].effect;
+        let textItem = resultado.flavor_text_entries[1].text;
+        let categoriaItem = resultado.category.name;
+        let spritItem = resultado.sprites.default;
+        let atributoList = resultado.attributes;
+        let atributoItem = "";  
+
+        atributoList.forEach(e => {
+            atributoItem = atributoItem + e.name + ","
+        });
+
+        let objeto = {
+            nombreItem: `${nombreItem}`,
+            efectoItem: `${efectoItem}`,
+            textItem: `${textItem}`,
+            categoriaItem: `${categoriaItem}`,
+            spritItem: `${spritItem}`,
+            atributoItem: `${atributoItem}`
+        }
+
+        abrirModalItem(objeto);
+
+
+    })
+}
 
   function llenarModalBerri(nombreBerry){
     createFieldSearch(`https://pokeapi.co/api/v2/berry/${nombreBerry}`).done((resultado)=>{
