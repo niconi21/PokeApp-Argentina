@@ -131,8 +131,8 @@ function abrirModalItem(objeto) {
     });
 }
 
-function setVistos(objeto) {
-    pokemonesVistos = JSON.parse(localStorage.getItem('vistos'));
+function setPokemonVistos(objeto) {
+    let pokemonesVistos = JSON.parse(localStorage.getItem('pokemonVistos'));
     let existe = false;
     pokemonesVistos.forEach(pokemon => {
         if (pokemon.nombre == objeto.nombre)
@@ -140,11 +140,36 @@ function setVistos(objeto) {
     });
     if (!existe)
         pokemonesVistos.push(objeto);
-    localStorage.setItem('vistos', JSON.stringify(pokemonesVistos));
+    localStorage.setItem('pokemonVistos', JSON.stringify(pokemonesVistos));
 }
 
-function setCarrito(objeto) {
-    pokemonesVistos = JSON.parse(localStorage.getItem('carrito'));
+function setBerriesVistos(objeto) {
+    console.log(objeto);
+    let berriesVistos = JSON.parse(localStorage.getItem('berriesVistos'));
+    let existe = false;
+    berriesVistos.forEach(pokemon => {
+        if (pokemon.nameBerri == objeto.nameBerri)
+            existe = true;
+    });
+    if (!existe)
+    berriesVistos.push(objeto);
+    localStorage.setItem('berriesVistos', JSON.stringify(berriesVistos));
+}
+
+function setItemsVistos(objeto) {
+    let itemsVistos = JSON.parse(localStorage.getItem('itemsVistos'));
+    let existe = false;
+    itemsVistos.forEach(pokemon => {
+        if (pokemon.nombreItem == objeto.nombreItem)
+            existe = true;
+    });
+    if (!existe)
+    itemsVistos.push(objeto);
+    localStorage.setItem('itemsVistos', JSON.stringify(itemsVistos));
+}
+
+function setPokemonCarrito(objeto) {
+    pokemonesVistos = JSON.parse(localStorage.getItem('pokemonCarrito'));
     let existe = false;
     pokemonesVistos.forEach(pokemon => {
         if (pokemon.nombre == objeto.nombre)
@@ -152,12 +177,41 @@ function setCarrito(objeto) {
     });
     if (!existe)
         pokemonesVistos.push(objeto);
-    localStorage.setItem('carrito', JSON.stringify(pokemonesVistos));
+    localStorage.setItem('pokemonCarrito', JSON.stringify(pokemonesVistos));
+}
+
+function setBerrieCarrito(objeto) {
+    let berriesCarrito = JSON.parse(localStorage.getItem('Berriescarrito'));
+    let existe = false;
+    berriesCarrito.forEach(berrie => {
+        if (berrie.nameBerri == objeto.nameBerri)
+            existe = true;
+    });
+    if (!existe)
+    berriesCarrito.push(objeto);
+    localStorage.setItem('Berriescarrito', JSON.stringify(berriesCarrito));
+}
+
+function setItemsCarrito(objeto) {
+    let itemsCarrito = JSON.parse(localStorage.getItem('itemscarrito'));
+    let existe = false;
+    itemsCarrito.forEach(item => {
+        if (item.nombreItem == objeto.nombreItem)
+            existe = true;
+    });
+    if (!existe)
+    itemsCarrito.push(objeto);
+    localStorage.setItem('itemscarrito', JSON.stringify(itemsCarrito));
 }
 
 
 function crearArreglosLocalStorage() {
-    if(localStorage.getItem('vistos') == null)
-    {localStorage.setItem('vistos', '[]');
-    localStorage.setItem('carrito', '[]');}
+    if (localStorage.getItem('pokemonVistos') == null) {
+        localStorage.setItem('pokemonVistos', '[]');
+        localStorage.setItem('berriesVistos', '[]');
+        localStorage.setItem('itemsVistos', '[]');
+        localStorage.setItem('pokemonCarrito', '[]');
+        localStorage.setItem('Berriescarrito', '[]');
+        localStorage.setItem('itemscarrito', '[]');
+    }
 }

@@ -37,6 +37,15 @@ $(document).ready(function () {
         llenarCarritoPokemon(nombrePokemon);
     })
 
+    $('body').on('click', '#botonCariitoBerri', function (e) {
+        let nombreBerrie = $(e.target.querySelector('div')).text();
+        llenarCarritoBerrie(nombreBerrie);
+    })
+    $('body').on('click', '.botonCarritoItems', function (e) {
+        let nombreItem = $(e.target.querySelector('div')).text();
+        llenarCarritoItems(nombreItem);
+    })
+
     $('body').on('click', '.botonVerBerri', function (e) {
         let nombreBerry = $(e.target.querySelector('div')).text();
         llenarModalBerri(nombreBerry);
@@ -81,7 +90,7 @@ function llenarModalPokemon(nombre) {
                         poder: `${powerMovePokemon} points`,
                         texto2: `" ${moveTextPokemon} "`
                     }
-                    setVistos(objeto)
+                    setPokemonVistos(objeto)
                     abrirModal(objeto);
                 })
             })
@@ -89,8 +98,8 @@ function llenarModalPokemon(nombre) {
     })
 }
 
-function llenarModalBerri(nombreBerry){
-    createFieldSearch(`https://pokeapi.co/api/v2/berry/${nombreBerry}`).done((resultado)=>{
+function llenarModalBerri(nombreBerry) {
+    createFieldSearch(`https://pokeapi.co/api/v2/berry/${nombreBerry}`).done((resultado) => {
         let firmezaBerri = resultado.firmness.name;
         let madurarBerri = resultado.growth_time;
         let maxArbolBerri = resultado.max_harvest;
@@ -104,10 +113,12 @@ function llenarModalBerri(nombreBerry){
         listaSabores.forEach(e => {
             saboresBerri = saboresBerri + e.flavor.name + ", ";
         });
-        createFieldSearch(`${itemUrl}`).done((resultado)=>{
+        createFieldSearch(`${itemUrl}`).done((resultado) => {
+            let costBarry = resultado.cost;
             let spritBerri = resultado.sprites.default;
             let efectoBerri = resultado.effect_entries[0].effect;
             let objeto = {
+                costBarry,
                 firmezaBerri: `${firmezaBerri}`,
                 madurarBerri: `${madurarBerri} hrs`,
                 maxArbolBerri: `${maxArbolBerri}`,
@@ -119,26 +130,29 @@ function llenarModalBerri(nombreBerry){
                 spritBerri: `${spritBerri}`,
                 efectoBerri: `${efectoBerri}`,
             }
+            setBerriesVistos(objeto)
             abrirModalBerri(objeto);
         })
     })
 }
 
-function llenarModalItem(nombreItem){
-    createFieldSearch(`https://pokeapi.co/api/v2/item/${nombreItem}`).done((resultado)=>{
+function llenarModalItem(nombreItem) {
+    createFieldSearch(`https://pokeapi.co/api/v2/item/${nombreItem}`).done((resultado) => {
         let nombreItem = resultado.name;
         let efectoItem = resultado.effect_entries[0].effect;
         let textItem = resultado.flavor_text_entries[1].text;
         let categoriaItem = resultado.category.name;
         let spritItem = resultado.sprites.default;
         let atributoList = resultado.attributes;
-        let atributoItem = "";  
+        let costItem = resultado.cost;
+        let atributoItem = "";
 
         atributoList.forEach(e => {
             atributoItem = atributoItem + e.name + ","
         });
 
         let objeto = {
+            costItem,
             nombreItem: `${nombreItem}`,
             efectoItem: `${efectoItem}`,
             textItem: `${textItem}`,
@@ -148,7 +162,7 @@ function llenarModalItem(nombreItem){
         }
 
         abrirModalItem(objeto);
-
+        setItemsVistos(objeto)
 
     })
 }
@@ -186,13 +200,81 @@ function llenarCarritoPokemon(nombre) {
                         poder: `${powerMovePokemon} points`,
                         texto2: `" ${moveTextPokemon} "`
                     }
-                    setCarrito(objeto)
+                    setPokemonCarrito(objeto)
                     // abrirModal(objeto);
                 })
             })
         })
     })
 }
+
+function llenarCarritoBerrie(nombreBerry) {
+    createFieldSearch(`https://pokeapi.co/api/v2/berry/${nombreBerry}`).done((resultado) => {
+        let firmezaBerri = resultado.firmness.name;
+        let madurarBerri = resultado.growth_time;
+        let maxArbolBerri = resultado.max_harvest;
+        let nameBerri = resultado.name;
+        let poderBerri = resultado.natural_gift_power;
+        let tamanioBerri = resultado.size;
+        let descBerri = resultado.soil_dryness;
+        let listaSabores = resultado.flavors;
+        let itemUrl = resultado.item.url;
+        let saboresBerri = "";
+        listaSabores.forEach(e => {
+            saboresBerri = saboresBerri + e.flavor.name + ", ";
+        });
+        createFieldSearch(`${itemUrl}`).done((resultado) => {
+            let costBarry = resultado.cost;
+            let spritBerri = resultado.sprites.default;
+            let efectoBerri = resultado.effect_entries[0].effect;
+            let objeto = {
+                costBarry,
+                firmezaBerri: `${firmezaBerri}`,
+                madurarBerri: `${madurarBerri} hrs`,
+                maxArbolBerri: `${maxArbolBerri}`,
+                nameBerri: `${nameBerri}`,
+                poderBerri: `${poderBerri} points`,
+                tamanioBerri: `${tamanioBerri} decimetres`,
+                descBerri: `${descBerri} hrs`,
+                saboresBerri: `${saboresBerri}`,
+                spritBerri: `${spritBerri}`,
+                efectoBerri: `${efectoBerri}`,
+            }
+            setBerrieCarrito(objeto)
+        })
+    })
+}
+
+function llenarCarritoItems(nombreItem) {
+    createFieldSearch(`https://pokeapi.co/api/v2/item/${nombreItem}`).done((resultado) => {
+        let nombreItem = resultado.name;
+        let efectoItem = resultado.effect_entries[0].effect;
+        let textItem = resultado.flavor_text_entries[1].text;
+        let categoriaItem = resultado.category.name;
+        let spritItem = resultado.sprites.default;
+        let atributoList = resultado.attributes;
+        let costItem = resultado.cost;
+        let atributoItem = "";
+
+        atributoList.forEach(e => {
+            atributoItem = atributoItem + e.name + ","
+        });
+
+        let objeto = {
+            costItem,
+            nombreItem: `${nombreItem}`,
+            efectoItem: `${efectoItem}`,
+            textItem: `${textItem}`,
+            categoriaItem: `${categoriaItem}`,
+            spritItem: `${spritItem}`,
+            atributoItem: `${atributoItem}`
+        }
+
+        setItemsCarrito(objeto)
+
+    })
+}
+
 function llenarCardsPokemon(url) {
     createFieldSearch(`${url}`).done((resultado) => {
         //Nombre.................................................
@@ -273,7 +355,7 @@ function llenarCardsBerries(url) {
                         Ver más</button>
                     <button class="btn btn-primary text-light" id="prueba"><i class="fas fa-share"></i>
                         Compartir</button>
-                    <button class="btn btn-success text-light" id="prueba"><i class="fas fa-cart-plus"></i>
+                    <button class="btn btn-success text-light" id="botonCariitoBerri"><div hidden>${nameBarry}</div><i class="fas fa-cart-plus"></i>
                         Agregar al carrito</button>
                         </div>
                     </div>`);
@@ -313,7 +395,7 @@ function llenarCardsItem(url) {
                             Ver más</button>
                         <button class="btn btn-primary text-light" id="prueba"><i class="fas fa-share"></i>
                             Compartir</button>
-                        <button class="btn btn-success text-light" id="prueba"><i class="fas fa-cart-plus"></i>
+                        <button class="btn btn-success text-light botonCarritoItems" id="prueba"><div hidden>${nombreItem}</div><i class="fas fa-cart-plus"></i>
                             Agregar al carrito</button>
                     </div>
                 </div>`);
