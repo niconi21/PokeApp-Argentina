@@ -42,7 +42,7 @@ function llenarTabla(){
             <td class="text-center"><button onclick="eliminarItemCarrito(${index})" class="btn btn-danger"><i class="fas fa-trash"></i></button></td>
         </tr>
         `  
-        costo+=parseInt(item.costBarry);
+        costo+=parseInt(item.costItem);
     });
 
     $('#tblCarrito').html('');
