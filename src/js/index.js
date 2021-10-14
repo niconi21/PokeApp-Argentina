@@ -36,6 +36,16 @@ $(document).ready(function () {
         let nombrePokemon = $(e.target.querySelector('div')).text();
         llenarCarritoPokemon(nombrePokemon);
     })
+
+    $('body').on('click', '.botonVerBerri', function (e) {
+        let nombreBerry = $(e.target.querySelector('div')).text();
+        llenarModalBerri(nombreBerry);
+    })
+
+    $('body').on('click', '.botonVerItem', function (e) {
+        let nombreItem = $(e.target.querySelector('div')).text();
+        llenarModalItem(nombreItem);
+    })
 })
 
 function llenarModalPokemon(nombre) {
@@ -76,6 +86,70 @@ function llenarModalPokemon(nombre) {
                 })
             })
         })
+    })
+}
+
+function llenarModalBerri(nombreBerry){
+    createFieldSearch(`https://pokeapi.co/api/v2/berry/${nombreBerry}`).done((resultado)=>{
+        let firmezaBerri = resultado.firmness.name;
+        let madurarBerri = resultado.growth_time;
+        let maxArbolBerri = resultado.max_harvest;
+        let nameBerri = resultado.name;
+        let poderBerri = resultado.natural_gift_power;
+        let tamanioBerri = resultado.size;
+        let descBerri = resultado.soil_dryness;
+        let listaSabores = resultado.flavors;
+        let itemUrl = resultado.item.url;
+        let saboresBerri = "";
+        listaSabores.forEach(e => {
+            saboresBerri = saboresBerri + e.flavor.name + ", ";
+        });
+        createFieldSearch(`${itemUrl}`).done((resultado)=>{
+            let spritBerri = resultado.sprites.default;
+            let efectoBerri = resultado.effect_entries[0].effect;
+            let objeto = {
+                firmezaBerri: `${firmezaBerri}`,
+                madurarBerri: `${madurarBerri} hrs`,
+                maxArbolBerri: `${maxArbolBerri}`,
+                nameBerri: `${nameBerri}`,
+                poderBerri: `${poderBerri} points`,
+                tamanioBerri: `${tamanioBerri} decimetres`,
+                descBerri: `${descBerri} hrs`,
+                saboresBerri: `${saboresBerri}`,
+                spritBerri: `${spritBerri}`,
+                efectoBerri: `${efectoBerri}`,
+            }
+            abrirModalBerri(objeto);
+        })
+    })
+}
+
+function llenarModalItem(nombreItem){
+    createFieldSearch(`https://pokeapi.co/api/v2/item/${nombreItem}`).done((resultado)=>{
+        let nombreItem = resultado.name;
+        let efectoItem = resultado.effect_entries[0].effect;
+        let textItem = resultado.flavor_text_entries[1].text;
+        let categoriaItem = resultado.category.name;
+        let spritItem = resultado.sprites.default;
+        let atributoList = resultado.attributes;
+        let atributoItem = "";  
+
+        atributoList.forEach(e => {
+            atributoItem = atributoItem + e.name + ","
+        });
+
+        let objeto = {
+            nombreItem: `${nombreItem}`,
+            efectoItem: `${efectoItem}`,
+            textItem: `${textItem}`,
+            categoriaItem: `${categoriaItem}`,
+            spritItem: `${spritItem}`,
+            atributoItem: `${atributoItem}`
+        }
+
+        abrirModalItem(objeto);
+
+
     })
 }
 
@@ -195,7 +269,7 @@ function llenarCardsBerries(url) {
                             <p class="text-justify p-1">${effectBarry}</p>
                         </div>
                         <div class="card-footer">
-                        <button class="btn btn-info text-light" id="prueba"><i class="fas fa-eye"></i>
+                        <button class="btn btn-info text-light botonVerBerri" id="prueba"><div hidden>${nameBarry}</div><i class="fas fa-eye"></i>
                         Ver más</button>
                     <button class="btn btn-primary text-light" id="prueba"><i class="fas fa-share"></i>
                         Compartir</button>
@@ -235,7 +309,7 @@ function llenarCardsItem(url) {
                         <p class="text-justify p-1">${effectItem}</p>
                     </div>
                     <div class="card-footer">
-                        <button class="btn btn-info text-light" id="prueba"><i class="fas fa-eye"></i>
+                        <button class="btn btn-info text-light botonVerItem" id="prueba"><div hidden>${nombreItem}</div><i class="fas fa-eye"></i>
                             Ver más</button>
                         <button class="btn btn-primary text-light" id="prueba"><i class="fas fa-share"></i>
                             Compartir</button>

@@ -62,6 +62,75 @@ function abrirModal(objeto) {
     });
 }
 
+function abrirModalBerri(objeto) {
+
+    popup.innerHTML = `
+<a href="#" id="btn-cerrar-popup" class="btn-cerrar-popup"><i class="fas fa-times"></i></a>
+            <h2>${objeto.nameBerri}</h2>
+            <img src="${objeto.spritBerri}" alt="">
+
+            <div>
+                <h4>Información básica</h4>
+                <p><b>Poder: ${objeto.poderBerri}</b></p>
+                <p><b>Tamaño: ${objeto.tamanioBerri}</b></p>
+                <p><b>Tiempo para madurar: ${objeto.madurarBerri}</b></p>
+                <p><b>Máximo de bayas por árbol: ${objeto.maxArbolBerri}</b></p>
+                <p><b>Firmeza: ${objeto.firmezaBerri}</b></p>
+                <p><b>Horas de descomposición: ${objeto.descBerri}</b></p>
+            </div>
+
+            <div>
+                <h4>Sabores</h4>
+                <p><b>${objeto.saboresBerri}</b></p>
+            </div>
+
+            <div>
+                <h4>Efecto</h4>
+                <p><b>${objeto.efectoBerri}</b></p>
+            </div>
+`
+
+    overlay.classList.add('active');
+    popup.classList.add('active');
+    btnCerrarPopup = document.getElementById('btn-cerrar-popup');
+
+    btnCerrarPopup.addEventListener('click', function (e) {
+        e.preventDefault();
+        overlay.classList.remove('active');
+        popup.classList.remove('active');
+    });
+}
+
+
+function abrirModalItem(objeto) {
+
+    popup.innerHTML = `
+<a href="#" id="btn-cerrar-popup" class="btn-cerrar-popup"><i class="fas fa-times"></i></a>
+            <h2>${objeto.nombreItem}</h2>
+            <img src="${objeto.spritItem}" alt="">
+
+            <div>
+                <h4>Información básica</h4>
+                <p><b>Categoria: ${objeto.categoriaItem}</b></p>
+                <br>
+                <p><b>Efecto: ${objeto.efectoItem}</b></p>
+                <br>
+                <p><b>Texto de ambientacion: ${objeto.textItem}</b></p>
+                <br>
+                <p><b>Atributos: ${objeto.atributoItem}</b></p>
+            </div>
+  `
+    overlay.classList.add('active');
+    popup.classList.add('active');
+    btnCerrarPopup = document.getElementById('btn-cerrar-popup');
+
+    btnCerrarPopup.addEventListener('click', function (e) {
+        e.preventDefault();
+        overlay.classList.remove('active');
+        popup.classList.remove('active');
+    });
+}
+
 function setVistos(objeto) {
     pokemonesVistos = JSON.parse(localStorage.getItem('vistos'));
     let existe = false;
