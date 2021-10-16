@@ -30,7 +30,7 @@ function llenarCardsItems(url) {
             <div class="card-producto-footer">
             <button class="btn btn-info text-light botonVerItem"><div hidden>${nombreItem}</div><i class="fas fa-eye"></i>
             Ver más</button>
-        <button class="btn btn-primary text-light"><i class="fas fa-share"></i>
+        <button class="btn btn-primary text-light botonCompartirItem"><div hidden>${nombreItem}</div><i class="fas fa-share"></i>
             Compartir</button>
         <button class="btn btn-success text-light botonCarritoItems"><div hidden>${nombreItem}</div><i class="fas fa-cart-plus"></i>
             Agregar al carrito</button>
@@ -51,6 +51,12 @@ $(document).ready(function () {
         let nombrePokemon = $(e.target.querySelector('div')).text();
         llenarCarritoPokemon(nombrePokemon);
     })
+    $('body').on('click', '.botonCompartirPokemon', function (e) {
+        let nombrePokemon = $(e.target.querySelector('div')).text();
+        compartirPokemon(nombrePokemon);
+    })
+
+
 
     $('body').on('click', '.botonVerBerri', function (e) {
         let nombreBerry = $(e.target.querySelector('div')).text();
@@ -60,6 +66,12 @@ $(document).ready(function () {
         let nombreBerry = $(e.target.querySelector('div')).text();
         llenarCarritoBerri(nombreBerry);
     })
+    $('body').on('click', '.botonCompartirBerri', function (e) {
+        console.log('0asd')
+        let nombreBerrie = $(e.target.querySelector('div')).text();
+        compartirBerri(nombreBerrie);
+    })
+
     $('body').on('click', '.botonCarritoItems', function (e) {
         let nombreItem = $(e.target.querySelector('div')).text();
         console.log(nombreItem);
@@ -70,6 +82,11 @@ $(document).ready(function () {
         let nombreItem = $(e.target.querySelector('div')).text();
         llenarModalItem(nombreItem);
     })
+    $('body').on('click', '.botonCompartirItem', function (e) {
+        let nombreItem = $(e.target.querySelector('div')).text();
+        compartirItem(nombreItem)
+    })
+
 
 })
 
@@ -311,7 +328,7 @@ function llenarCardsPokemon(url) {
                 <div class="card-footer">
                 <button class="btn btn-info text-light botonVerPokemon"><div hidden>${namePokemon}</div><i class="fas fa-eye"></i>
                 Ver más</button>
-            <button class="btn btn-primary text-light"><i class="fas fa-share"></i>
+            <button class="btn btn-primary text-light botonCompartirPokemon"><div hidden>${namePokemon}</div><i class="fas fa-share"></i>
                 Compartir</button>
             <button class="btn btn-success text-light botonCarritoPokemon"><div hidden>${namePokemon}</div><i class="fas fa-cart-plus"></i>
                 Agregar al carrito</button>
@@ -345,7 +362,7 @@ function llenarCardsBerry(url) {
                 <div class="card-producto-footer">
                 <button class="btn btn-info text-light botonVerBerri" id="prueba"><div hidden>${nameBarry}</div><i class="fas fa-eye"></i>
                 Ver más</button>
-            <button class="btn btn-primary text-light" id="prueba"><i class="fas fa-share"></i>
+            <button class="btn btn-primary text-light botonCompartirBerri" id="prueba"><div hidden>${nameBarry}</div><i class="fas fa-share"></i>
                 Compartir</button>
             <button class="btn btn-success text-light botonCarritoBerri" id="prueba"><div hidden>${nameBarry}</div><i class="fas fa-cart-plus"></i>
                 Agregar al carrito</button>
@@ -354,6 +371,114 @@ function llenarCardsBerry(url) {
         });
     });
 }
+
+function compartirPokemon(nombre) {
+    createFieldSearch(`https://pokeapi.co/api/v2/pokemon/${nombre}`).done((resultado) => {
+        let nombrePokemon = resultado.name;
+        let costo = resultado.base_experience;
+        let spritePokemon = resultado.sprites.front_default;
+        let alturaPokemon = resultado.height;
+        let pesoPokemon = resultado.weight;
+        let abilityPokemon = resultado.abilities[0].ability.name;
+        let abilityUrlPokemon = resultado.abilities[0].ability.url;
+        let movePokemon = resultado.moves[0].move.name;
+        let moveUrlPokemon = resultado.moves[0].move.url;
+        createFieldSearch(`https://pokeapi.co/api/v2/pokemon-species/${nombrePokemon}/`).done((resultado) => {
+            let habitatPokemon = resultado.habitat.name;
+            createFieldSearch(abilityUrlPokemon).done((resultado) => {
+                let effectPokemon = resultado.effect_entries[1].short_effect;
+                let effectTextPokemon = resultado.flavor_text_entries[0].flavor_text;
+                createFieldSearch(moveUrlPokemon).done((resultado) => {
+                    let powerMovePokemon = resultado.power;
+                    let moveTextPokemon = resultado.flavor_text_entries[1].flavor_text;
+                    let objeto = {
+                        costo,
+                        nombre: `${nombrePokemon}`,
+                        img: `${spritePokemon}`,
+                        altura: `${alturaPokemon} decimetres`,
+                        peso: `${pesoPokemon} hectograms`,
+                        areaUbicacion: `${habitatPokemon}`,
+                        habilidad: `${abilityPokemon}`,
+                        efecto: `${effectPokemon}`,
+                        texto1: `" ${effectTextPokemon} "`,
+                        movimiento: `${movePokemon}`,
+                        poder: `${powerMovePokemon} points`,
+                        texto2: `" ${moveTextPokemon} "`
+                    }
+                    setComparirPokemon(objeto)
+                })
+            })
+        })
+    })
+}
+
+function compartirBerri(nombreBerry) {
+    createFieldSearch(`https://pokeapi.co/api/v2/berry/${nombreBerry}`).done((resultado) => {
+        let firmezaBerri = resultado.firmness.name;
+        let madurarBerri = resultado.growth_time;
+        let maxArbolBerri = resultado.max_harvest;
+        let nameBerri = resultado.name;
+        let poderBerri = resultado.natural_gift_power;
+        let tamanioBerri = resultado.size;
+        let descBerri = resultado.soil_dryness;
+        let listaSabores = resultado.flavors;
+        let itemUrl = resultado.item.url;
+        let saboresBerri = "";
+        listaSabores.forEach(e => {
+            saboresBerri = saboresBerri + e.flavor.name + ", ";
+        });
+        createFieldSearch(`${itemUrl}`).done((resultado) => {
+            let costBarry = resultado.cost;
+            let spritBerri = resultado.sprites.default;
+            let efectoBerri = resultado.effect_entries[0].effect;
+            let objeto = {
+                costBarry,
+                firmezaBerri: `${firmezaBerri}`,
+                madurarBerri: `${madurarBerri} hrs`,
+                maxArbolBerri: `${maxArbolBerri}`,
+                nameBerri: `${nameBerri}`,
+                poderBerri: `${poderBerri} points`,
+                tamanioBerri: `${tamanioBerri} decimetres`,
+                descBerri: `${descBerri} hrs`,
+                saboresBerri: `${saboresBerri}`,
+                spritBerri: `${spritBerri}`,
+                efectoBerri: `${efectoBerri}`,
+            }
+            setComparirBerrie(objeto)
+        })
+    })
+}
+
+function compartirItem(nombreItem) {
+    createFieldSearch(`https://pokeapi.co/api/v2/item/${nombreItem}`).done((resultado) => {
+        let nombreItem = resultado.name;
+        let efectoItem = resultado.effect_entries[0].effect;
+        let textItem = resultado.flavor_text_entries[1].text;
+        let categoriaItem = resultado.category.name;
+        let spritItem = resultado.sprites.default;
+        let atributoList = resultado.attributes;
+        let costItem = resultado.cost;
+        let atributoItem = "";
+
+        atributoList.forEach(e => {
+            atributoItem = atributoItem + e.name + ","
+        });
+
+        let objeto = {
+            costItem,
+            nombreItem: `${nombreItem}`,
+            efectoItem: `${efectoItem}`,
+            textItem: `${textItem}`,
+            categoriaItem: `${categoriaItem}`,
+            spritItem: `${spritItem}`,
+            atributoItem: `${atributoItem}`
+        }
+
+        setComparirItem(objeto)
+
+    })
+}
+
 
 $(document).ready(() => {
     $("#boton1").click(function () {

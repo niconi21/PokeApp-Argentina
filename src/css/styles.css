@@ -818,7 +818,7 @@ body {
   display: grid;
   grid-template-columns: 0.4fr 1fr 1fr;
   grid-template-rows: auto minmax(500px, auto) auto;
-  grid-template-areas: "header header header" "menu   main   main   " "footer footer footer";
+  grid-template-areas: "header header header" "main   main   main   " "footer footer footer";
 }
 @media screen and (max-width: 850px) {
   .container-index {
@@ -1039,7 +1039,7 @@ body {
   border-radius: 2rem;
   padding: 20px;
   text-align: center;
-  width: 25rem;
+  width: 30rem;
   transition: 0.3s ease all;
   transform: scale(0.7);
   opacity: 0;
@@ -1105,6 +1105,35 @@ body {
 
 .container-table {
   overflow-x: scroll;
+}
+
+.form {
+  width: 100%;
+  display: flex;
+  flex-flow: column wrap;
+  padding: 1rem 1rem;
+}
+.form .form-group {
+  margin-top: 10px;
+  width: 100%;
+  display: flex;
+  flex-flow: column nowrap;
+}
+.form .form-group label {
+  text-align: left;
+  margin-bottom: 5px;
+}
+.form .form-group input {
+  padding: 0.5rem;
+}
+.form .form-group textarea {
+  padding: 1rem;
+}
+.form .form-send {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-evenly;
+  margin-top: 20px;
 }
 
 * {

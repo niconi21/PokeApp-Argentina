@@ -101,7 +101,6 @@ function abrirModalBerri(objeto) {
     });
 }
 
-
 function abrirModalItem(objeto) {
 
     popup.innerHTML = `
@@ -152,7 +151,7 @@ function setBerriesVistos(objeto) {
             existe = true;
     });
     if (!existe)
-    berriesVistos.push(objeto);
+        berriesVistos.push(objeto);
     localStorage.setItem('berriesVistos', JSON.stringify(berriesVistos));
 }
 
@@ -164,7 +163,7 @@ function setItemsVistos(objeto) {
             existe = true;
     });
     if (!existe)
-    itemsVistos.push(objeto);
+        itemsVistos.push(objeto);
     localStorage.setItem('itemsVistos', JSON.stringify(itemsVistos));
 }
 
@@ -188,7 +187,7 @@ function setBerrieCarrito(objeto) {
             existe = true;
     });
     if (!existe)
-    berriesCarrito.push(objeto);
+        berriesCarrito.push(objeto);
     localStorage.setItem('Berriescarrito', JSON.stringify(berriesCarrito));
 }
 
@@ -200,18 +199,100 @@ function setItemsCarrito(objeto) {
             existe = true;
     });
     if (!existe)
-    itemsCarrito.push(objeto);
+        itemsCarrito.push(objeto);
     localStorage.setItem('itemscarrito', JSON.stringify(itemsCarrito));
 }
 
+function setComparirPokemon(objeto) {
+    abrirModalCompartir(objeto)
+}
+function setComparirBerrie(objeto) {
+    objeto.img = objeto.spritBerri
+    objeto.nombre = objeto.nameBerri
+    objeto.costo = objeto.costBarry
+    abrirModalCompartir(objeto)
+}
+function setComparirItem(objeto) {
+    objeto.img = objeto.spritItem
+    objeto.nombre = objeto.nombreItem
+    objeto.costo = objeto.costItem
+    abrirModalCompartir(objeto)
+}
+
+function abrirModalCompartir(objeto) {
+    popup.innerHTML = `
+        <a href="#" id="btn-cerrar-popup" class="btn-cerrar-popup"><i class="fas fa-times"></i></a>
+        <h2>Compartir pokemon</h2>
+        <img src="${objeto.img}" alt="">
+        <div>
+            <h4>Información básica</h4>
+            <p><b>Nombre: ${objeto.nombre}</b></p>
+            <p><b>Costo: $${objeto.costo}.00</b></p>
+        </div>
+        <div class="form">
+            <form>
+            <div class="form-group">
+                <label>
+                Destinatarío
+                </label>
+                <input id="inpCorreo" type="email">
+            </div>
+            <div class="form-group">
+                <label>
+                Asunto
+                </label>
+                <input id="inpAsunto" type="text">
+            </div>
+            <div class="form-group">
+                <label>
+                Mensaje:
+                </label>
+                <textarea id="inpMensaje"></textarea>
+            </div>
+            <div class="form-send">
+                <button id="enviarCorreo" class="btn btn-success">Enviar</button>
+                <a href="#" id="cancelarCompartir" class="btn btn-danger">Cancelar</a>
+            </div>
+
+            </form>
+        </div>
+`
+
+
+    overlay.classList.add('active');
+    popup.classList.add('active');
+    btnCerrarPopup = document.getElementById('btn-cerrar-popup');
+    btnEnviarCorreo = document.getElementById('enviarCorreo');
+    cancelarCompartir = document.getElementById('cancelarCompartir');
+
+    btnEnviarCorreo.addEventListener('click', function (e) {
+        e.preventDefault();
+        
+        window.open(`mailto:${$('#inpCorreo').val()}?subject=${$('#inpAsunto').val()}&body=${$('#inpMensaje').val()}`);       
+    });
+    btnCerrarPopup.addEventListener('click', function (e) {
+        e.preventDefault();
+        overlay.classList.remove('active');
+        popup.classList.remove('active');
+    });
+    cancelarCompartir.addEventListener('click', function (e) {
+        e.preventDefault();
+        overlay.classList.remove('active');
+        popup.classList.remove('active');
+    });
+}
 
 function crearArreglosLocalStorage() {
-    if (localStorage.getItem('pokemonVistos') == null) {
+    if (localStorage.getItem('pokemonVistos') == null)
         localStorage.setItem('pokemonVistos', '[]');
+    if (localStorage.getItem('berriesVistos') == null)
         localStorage.setItem('berriesVistos', '[]');
+    if (localStorage.getItem('itemsVistos') == null)
         localStorage.setItem('itemsVistos', '[]');
+    if (localStorage.getItem('pokemonCarrito') == null)
         localStorage.setItem('pokemonCarrito', '[]');
+    if (localStorage.getItem('Berriescarrito') == null)
         localStorage.setItem('Berriescarrito', '[]');
+    if (localStorage.getItem('itemscarrito') == null)
         localStorage.setItem('itemscarrito', '[]');
-    }
 }

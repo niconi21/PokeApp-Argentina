@@ -7,7 +7,7 @@ body {
   grid-template-rows: auto minmax(500px, auto) auto;
   grid-template-areas:
     "header header header"
-    "menu   main   main   "
+    "main   main   main   "
     "footer footer footer";
   @media screen and (max-width: 850px) {
     grid-template-rows: auto auto auto auto;
