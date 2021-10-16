@@ -23,3 +23,5 @@ Herramientas utilizadas para crear el proyecto:
 - jQuery
 - Visual Studio Code
 # Autores
+Iván Córdova Rodriguez
+Nicolas Moreno Durán
