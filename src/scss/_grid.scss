@@ -229,4 +229,9 @@ body {
       border: none;
     }
   }
+  @media screen  and (max-width:800px){
+    flex-flow: column nowrap;
+    align-items: flex-start;
+    row-gap: 10px;
+}
 }
