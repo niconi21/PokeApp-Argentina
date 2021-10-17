@@ -16,12 +16,11 @@ body {
       "menu    menu    menu "
       "main main   main"
       "footer footer footer";
-    .menu{
-      form{
+    .menu {
+      form {
         width: 100%;
         display: flex;
         flex-flow: column wrap;
-
       }
     }
   }
@@ -174,7 +173,6 @@ body {
 }
 
 .main {
-  
   grid-column: main;
   grid-row: main;
 }
@@ -191,10 +189,12 @@ body {
   .card {
     width: 40%;
   }
-  @media screen and (max-width:800px) {
+  @media screen and (max-width: 800px) {
     flex-flow: column nowrap;
     row-gap: 2rem;
-    .card{width: 90%;}
+    .card {
+      width: 90%;
+    }
   }
 }
 
@@ -208,13 +208,21 @@ body {
   background-color: $gray-700;
 }
 
-.form {
+.form-productos {
   display: flex;
   flex-flow: row nowrap;
   column-gap: 2rem;
   color: $white;
   align-items: center;
+  .form-buscador {
+    display: flex;
+    flex-flow: row nowrap;
+  }
   div {
+    display: flex;
+    flex-flow: column nowrap;
+    row-gap: 10px;
+
     input {
       border-radius: 1rem;
       padding: 0.5rem;

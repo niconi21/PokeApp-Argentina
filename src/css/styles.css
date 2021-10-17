@@ -1012,14 +1012,23 @@ body {
   background-color: #495057;
 }
 
-.form {
+.form-productos {
   display: flex;
   flex-flow: row nowrap;
   column-gap: 2rem;
   color: #fff;
   align-items: center;
 }
-.form div input {
+.form-productos .form-buscador {
+  display: flex;
+  flex-flow: row nowrap;
+}
+.form-productos div {
+  display: flex;
+  flex-flow: column nowrap;
+  row-gap: 10px;
+}
+.form-productos div input {
   border-radius: 1rem;
   padding: 0.5rem;
   border: none;

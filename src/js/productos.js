@@ -7,6 +7,7 @@ function createFieldSearch(datos) {
     }).fail(function (jqXHR, textStatus, errorThrown) {
         //alert( 'Error!!' );
     }).done(function (response) {
+        $('#msgProductoForm').html('')
         return response;
     });
 }
@@ -38,8 +39,6 @@ function llenarCardsItems(url) {
         </div>`);
     })
 }
-
-
 
 $(document).ready(function () {
     $('body').on('click', '.botonVerPokemon', function (e) {
@@ -484,15 +483,32 @@ $(document).ready(() => {
     $("#boton1").click(function () {
         let elemntBusqueda = $("#busqueda").val();
         let radioValue = $('input[name="radioB"]:checked').val();
-
-        if (radioValue == "pokemon") {
-            llenarCardsPokemon(`https://pokeapi.co/api/v2/pokemon/${elemntBusqueda}`);
-        }
-        if (radioValue == "berries") {
-            llenarCardsBerry(`https://pokeapi.co/api/v2/berry/${elemntBusqueda}`);
-        }
-        if (radioValue == "items") {
-            llenarCardsItems(`https://pokeapi.co/api/v2/item/${elemntBusqueda}`);
+        if (validarFormularioProducto()) {
+            
+            if (radioValue == "pokemon") {
+                llenarCardsPokemon(`https://pokeapi.co/api/v2/pokemon/${elemntBusqueda}`);
+            }
+            if (radioValue == "berries") {
+                llenarCardsBerry(`https://pokeapi.co/api/v2/berry/${elemntBusqueda}`);
+            }
+            if (radioValue == "items") {
+                llenarCardsItems(`https://pokeapi.co/api/v2/item/${elemntBusqueda}`);
+            }
         }
     });
 })
+
+function validarFormularioProducto() {
+    let valido = true;
+    let nombreProducto = $('#busqueda')
+    $('#msgProductoForm').html('')
+    nombreProducto.removeClass('errorForm')
+    if (nombreProducto.val() == '') {
+        nombreProducto.addClass('errorForm')
+        $('#msgProductoForm').append(`<small class="text-left text-warning"><i class="fas fa-exclamation-triangle"></i> Se require el nombre o el indice del ${$('input[name="radioB"]:checked').val()}</small>`)
+        valido = false;
+    } else {
+        $('#msgProductoForm').append(`<small class="text-left text-info"><i class="fas fa-exclamation-triangle"></i>Buscando...</small>`)
+    }
+    return valido
+}
