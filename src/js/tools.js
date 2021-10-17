@@ -204,18 +204,21 @@ function setItemsCarrito(objeto) {
 }
 
 function setComparirPokemon(objeto) {
+    objeto.descripcion = objeto.efecto
     abrirModalCompartir(objeto)
 }
 function setComparirBerrie(objeto) {
     objeto.img = objeto.spritBerri
     objeto.nombre = objeto.nameBerri
     objeto.costo = objeto.costBarry
+    objeto.descripcion = objeto.efectoBerri
     abrirModalCompartir(objeto)
 }
 function setComparirItem(objeto) {
     objeto.img = objeto.spritItem
     objeto.nombre = objeto.nombreItem
     objeto.costo = objeto.costItem
+    objeto.descripcion = objeto.efectoItem
     abrirModalCompartir(objeto)
 }
 
@@ -236,12 +239,14 @@ function abrirModalCompartir(objeto) {
                 Destinatarío
                 </label>
                 <input id="inpCorreo" type="email">
+                <div id="msgCorreo" class="msg-error"></div>
             </div>
             <div class="form-group">
                 <label>
                 Asunto
                 </label>
                 <input id="inpAsunto" type="text">
+                <div id="msgAsunto" class="msg-error"></div>
             </div>
             <div class="form-group">
                 <label>
@@ -267,8 +272,19 @@ function abrirModalCompartir(objeto) {
 
     btnEnviarCorreo.addEventListener('click', function (e) {
         e.preventDefault();
-        
-        window.open(`mailto:${$('#inpCorreo').val()}?subject=${$('#inpAsunto').val()}&body=${$('#inpMensaje').val()}`);       
+        if (validarFormularioCompartir()) {
+            let body = `<div>
+                        <h4>Información básica</h4>
+                        <p><b>Nombre: </b>${objeto.nombre}</p>
+                        <p><b>Costo:  </b>$${objeto.costo}.00</p>
+                        <p><b>Descripción: </b>${objeto.descripcion}.00</p>
+
+                    </div>`;
+
+            body += $('#inpMensaje').val()
+
+            window.open(`mailto:${$('#inpCorreo').val()}?subject=${$('#inpAsunto').val()}&body=${body}`);
+        }
     });
     btnCerrarPopup.addEventListener('click', function (e) {
         e.preventDefault();
@@ -280,6 +296,38 @@ function abrirModalCompartir(objeto) {
         overlay.classList.remove('active');
         popup.classList.remove('active');
     });
+}
+
+
+function validarFormularioCompartir() {
+    let correo = $('#inpCorreo')
+    let asunto = $('#inpAsunto')
+    let valido = true;
+    let correoRegex = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i
+    $('#msgCorreo').html('')
+    $('#msgAsunto').html('')
+    correo.removeClass('errorForm')
+    asunto.removeClass('errorForm')
+
+    if (correo.val() == '') {
+        correo.addClass('errorForm')
+        $('#msgCorreo').append(`<small class="text-left text-warning"><i class="fas fa-exclamation-triangle"></i> Se require el correo</small>`)
+        valido = false;
+    }
+    if (!correoRegex.test(correo.val())) {
+
+        correo.addClass('errorForm')
+        $('#msgCorreo').append(`<small class="text-left text-warning"><i class="fas fa-exclamation-triangle"></i> Escribe un correo válido</small>`)
+        valido = false;
+    }
+
+    if (asunto.val() == '') {
+        asunto.addClass('errorForm')
+        $('#msgAsunto').append(`<small class="text-left text-warning"><i class="fas fa-exclamation-triangle"></i> Se require el asunto</small>`)
+
+        valido = false;
+    }
+    return valido
 }
 
 function crearArreglosLocalStorage() {

@@ -726,6 +726,17 @@
   text-align: right;
 }
 
+.errorForm {
+  border: 2px solid #FF1700 !important;
+}
+
+.msg-error {
+  margin-top: 5px;
+  display: flex;
+  flex-flow: column nowrap;
+  row-gap: 5px;
+}
+
 .card {
   width: 15rem;
   box-shadow: 5px 5px 8px #000;
