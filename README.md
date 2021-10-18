@@ -13,6 +13,11 @@ Actualmente [PokéApi](https://pokeapi.co/ "PokéApi") cuenta con miles de eleme
 
 [PokéApi](https://pokeapi.co/ "PokéApi") cuenta con soporte para diferentes lenguajes, en esta aplicación usamos los datos en inglés 
 
+# Ejecución
+La página inicial del proyecto está en la ruta 
+
+- /src/pages/index.html
+
 # Construido con
 Herramientas utilizadas para crear el proyecto:
 - [PokéApi](https://pokeapi.co/ "PokéApi") 
